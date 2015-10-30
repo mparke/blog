@@ -1,0 +1,27 @@
+---
+layout: base
+---
+
+<div class="header">
+</div>
+<div class="container posts">
+    {% for post in paginator.posts %}
+    {% include post-stub.html post=post %}
+    {% endfor %}
+    {% if paginator.previous_page %}
+    <div class="pull-left" style="margin-bottom: 2rem;">
+        <a href="{{paginator.previous_page_path}}/" class="btn btn-info">
+            <i class="fa fa-caret-left"></i>
+            Page {{paginator.previous_page}}
+        </a>
+    </div>
+    {% endif %}
+    {% if paginator.next_page %}
+    <div class="pull-right" style="margin-bottom: 2rem;">
+        <a href="{{paginator.next_page_path}}/" class="btn btn-info">
+            Page {{paginator.next_page}}
+            <i class="fa fa-caret-right"></i>
+        </a>
+    </div>
+    {% endif %}
+</div>
