@@ -1,0 +1,33 @@
+---
+layout: base
+---
+
+<div class="header">
+    <div class="container" style="position: relative">
+        <a href="/" class="back-link">
+            <i class="fa fa-caret-left"></i>
+            Back
+        </a>
+        <h1>Linode Engineering Blog</h1>
+    </div>
+</div>
+<div class="container">
+    <h1 class="title">{{ page.title }}</h1>
+    <div class="post-attrib text-centered">
+        <img class="avatar" alt="{{ page.author }}"
+            src="{{ page.avatar }}" />
+        <p class="attribution">
+            Published
+            <span class="date">
+                {{ page.date | date_to_string }}
+            </span>
+            by
+            <span class="author">
+                {{ page.author }}
+            </span>
+        </p>
+    </div>
+    <div class="content text-justified">
+    {{ content }}
+    </div>
+</div>

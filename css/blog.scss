@@ -1,0 +1,58 @@
+---
+# Compiled by Jekyll
+---
+
+@import "base";
+
+.header {
+    padding-top: 2rem;
+    text-align: center;
+
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.posts {
+    .card {
+        margin: 3rem 0;
+        padding: 1rem;
+    }
+}
+
+.attribution {
+    color: #999;
+
+    span {
+        display: block;
+        color: #000;
+    }
+}
+
+.post-attrib {
+    float: left;
+    width: 11em;
+    margin: 0 0 2rem 0;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    box-shadow: 0 0 2px 2px #888;
+    margin-bottom: 5px;
+}
+
+.title {
+    margin-top: 2rem;
+}
+
+.back-link {
+    font-size: 1.25rem;
+    position: absolute;
+    left: 0;
+}

@@ -1,0 +1,42 @@
+---
+layout: base
+---
+
+<div class="header">
+    <div class="container">
+        <h1>Linode Engineering Blog</h1>
+    </div>
+</div>
+<div class="container posts">
+    {% for post in site.posts %}
+    <div class="card">
+        <div class="row">
+            <div class="col-md-2 text-centered">
+                <img class="avatar" alt="{{ post.author }}"
+                    src="{{ post.avatar }}" />
+                <p class="attribution">
+                    Published
+                    <span class="date">
+                        {{ post.date | date_to_string }}
+                    </span>
+                    by
+                    <span class="author">
+                        {{ post.author }}
+                    </span>
+                </p>
+            </div>
+            <div class="col-md-10">
+                <h2>
+                    <a href="{{ post.url }}">
+                    {{ post.title }}
+                    </a>
+                </h2>
+                {{ post.excerpt }}
+                <a href="{{ post.url }}" class="read-more">
+                    Read more <i class="fa fa-caret-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
