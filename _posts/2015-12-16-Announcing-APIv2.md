@@ -39,7 +39,7 @@ resp=$(curl -H "Content-Type: application/json" \
     -X POST -d '{
         "datacenter": "dctr_6",
         "service": "serv_112",
-        "source": "dist_131",
+        "source": "dist_140",
         "root_pass": "hunter2"
     }' https://api.alpha.linode.com/v2/linodes)
 {% endhighlight %}
@@ -53,8 +53,8 @@ html = html.replace("hunter2", password);
 document.getElementById('curl-example').innerHTML = html;
 </script>
 
-This creates a new Linode 1024 (`serv_112`) in Newark (`dctr_6`) with Ubuntu
-(`dist_131`) installed. All of the low-level decisions we used to ask you to make
+This creates a new Linode 1024 (`serv_112`) in Newark (`dctr_6`) with Debian
+(`dist_140`) installed. All of the low-level decisions we used to ask you to make
 about things like disk layout and boot configs are now given sane defaults. We
 haven't left power users behind, though, there are still API endpoints for doing
 it the hard way. The response is a Linode object
@@ -78,7 +78,7 @@ That's it! Wait a few seconds for the
 and log into your new Linode:
 
 {% highlight bash %}
-linode_ip=$(echo "$resp" | jq -r .linode.ip_addresses.public[0])
+linode_ip=$(echo "$resp" | jq -r .linode.ip_addresses.public.ipv4[0])
 ssh root@$linode_ip
 {% endhighlight %}
 
