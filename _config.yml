@@ -1,8 +1,6 @@
 gems: [jekyll-paginate]
 sass:
     style: compressed
-    load_paths:
-        - css/
-        - styles/
+    sass_dir: styles/
 paginate: 5
 paginate_path: "/archive/page:num/"
