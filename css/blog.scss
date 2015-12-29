@@ -5,15 +5,6 @@
 $root: "../styles/";
 @import "base";
 
-.header {
-    h1 {
-        margin: 0;
-        margin-top: 2rem;
-        padding: 1rem;
-        @extend .card;
-    }
-}
-
 .posts {
     .card {
         margin: 3rem 0;
