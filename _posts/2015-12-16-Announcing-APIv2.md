@@ -103,7 +103,8 @@ the new design is really solid. API 2 uses tools like
 [Flask](http://flask.pocoo.org/) and [SQLAlchemy](http://www.sqlalchemy.org/)
 and is delightful to work on. It's also a lot easier to avoid and mitigate
 security issues on a fresh Python codebase than on a 13 year-old ColdFusion
-codebase.
+codebase. The new API is also stateless and easier to distribute and make
+more reliable.
 
 As we've been writing Linode's new API from scratch, we've had a pretty
 interesting journey. Having a large, established set of codebases and
