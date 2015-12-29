@@ -74,7 +74,7 @@ curl -H "Content-Type: application/json" \
 {% endhighlight %}
 
 That's it! Wait a few seconds for the
-[jobs to complete](https://developers.linode.com/reference/#ep-linodes),
+[jobs to complete](http://linode.sircmpwn.com/reference/#ep-linodes/:id/jobs),
 and log into your new Linode:
 
 {% highlight bash %}
