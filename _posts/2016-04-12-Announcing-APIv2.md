@@ -129,6 +129,32 @@ them during our work on API 2. We have plans on pulling our work out into
 independent, open-sourcable Python modules. I've got my eye on our validation
 module and our lightweight SQLAlchemy ⟷ JSON module. We're also taking a look at
 writing some API wrappers for the new API. These will be open source, of course.
+In fact...
+
+## pip install linode-api
+
+We're shipping the alpha with a brand new Python API wrapper,
+[linode-api](https://warehouse.python.org/project/linode-api/)
+([GitHub](https://github.com/Linode/python-api)). Check it out:
+
+{% highlight python %}
+>>> from linode import LinodeClient
+>>> client = LinodeClient("a valid oauth token",
+...     base_url="https://api.alpha.linode.com/v2")
+>>> service = client.get_services(Service.label == "Linode 1024")[0]
+>>> datacenter = client.get_datacenters(Datacenter.label == "Newark, NJ")[0]
+>>> distro = client.get_distributions(Distribution.label == "Ubuntu 14.04")[0]
+>>> (linode, password) = client.create_linode(service, datacenter, source=distro)
+>>> linode.label = "My Awesome Linode"
+>>> linode.save()
+{% endhighlight %}
+
+We support server-side filtering and the Python client implements a filtering
+syntax that's very similar to SQLAlchemy's syntax (the server-side
+implementation of this is another candidate for open source). The Python
+wrapper also includes a login.linode.com client that can help you implement an
+OAuth flow - check out the [example
+app](https://github.com/Linode/python-api/tree/master/examples/oauth-flow).
 
 ## Engineering Blog
 
