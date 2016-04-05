@@ -74,7 +74,8 @@ curl -H "Content-Type: application/json" \
     -X POST https://api.alpha.linode.com/v2/linodes/$linode_id/boot
 {% endhighlight %}
 
-That's it! You can watch its status change to "running":
+That's it! You can watch its status change to "running" as its provisioned and
+booted:
 
 {% highlight bash %}
 curl -H "Authorization: token $token" \
