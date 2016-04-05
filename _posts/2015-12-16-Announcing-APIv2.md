@@ -34,7 +34,7 @@ pretty bad. We've streamlined it quite a bit. Now:
 {% highlight bash %}
 #!/bin/bash
 token="a valid oauth token"
-resp=$(curl -H "Content-Type: application/json" \
+linode=$(curl -H "Content-Type: application/json" \
     -H "Authorization: token $token" \
     -X POST -d '{
         "datacenter": "dctr_6",
@@ -53,16 +53,17 @@ html = html.replace("hunter2", password);
 document.getElementById('curl-example').innerHTML = html;
 </script>
 
-This creates a new Linode 1024 (`serv_112`) in Newark (`dctr_6`) with Debian
+This creates a new Linode 1024 (`serv_112`) in Newark (`dctr_6`) with Debian 8.1
 (`dist_140`) installed. All of the low-level decisions we used to ask you to make
 about things like disk layout and boot configs are now given sane defaults. We
 haven't left power users behind, though, there are still API endpoints for doing
-it the hard way. The response is a Linode object
+it the hard way. The response is a [Linode
+object](http://developers.linode.com/reference/#object-linodes)
 as JSON.  Since we're using the shell, I'm going to use
 [jq](https://stedolan.github.io/jq/) to grab the ID:
 
 {% highlight bash %}
-linode_id=$(echo "$resp" | jq -r .linode.id)
+linode_id=$(echo "$linode" | jq -r .linode.id)
 {% endhighlight %}
 
 And now we can boot it:
@@ -73,12 +74,17 @@ curl -H "Content-Type: application/json" \
     -X POST https://api.alpha.linode.com/v2/linodes/$linode_id/boot
 {% endhighlight %}
 
-That's it! Wait a few seconds for the
-[jobs to complete](http://linode.sircmpwn.com/reference/#ep-linodes/:id/jobs),
-and log into your new Linode:
+That's it! You can watch its status change to "running":
 
 {% highlight bash %}
-linode_ip=$(echo "$resp" | jq -r .linode.ip_addresses.public.ipv4[0])
+curl -H "Authorization: token $token" \
+    https://api.alpha.linode.com/v2/linodes/$linode_id | jq .status
+{% endhighlight %}
+
+Once it's up, you can log into your new Linode!
+
+{% highlight bash %}
+linode_ip=$(echo "$linode" | jq -r .linode.ip_addresses.public.ipv4[0])
 ssh root@$linode_ip
 {% endhighlight %}
 
@@ -87,7 +93,8 @@ new thing for a while now. This lets you make applications that your users can
 log into with their Linode account to get access to only the things you need.
 When you sit down to make something with the Linode API, you need to register
 your client at [login.alpha.linode.com](https://login.alpha.linode.com) (you'll
-have to have an invite first). Then you can head over to the
+have to [get an invite](https://alpha.linode.com) first). Then you can head over
+to the
 [authentication docs](https://developers.linode.com/reference/#authentication)
 to get started.
 
@@ -115,13 +122,12 @@ refactorings. I'm proud of what we've come up with as a result, and we want to
 share some of the innovations we've made with the rest of the world.
 
 Linode's current [open source offerings](https://github.com/Linode) are pretty
-poor. I'm committed to fixing that, as a pretty prolific open source advocate
-myself. I can personally see some gaps in the open source world when it comes to
-building things with Flask, and we have filled many of them during our work on
-API 2. We have plans on pulling our work out into independent, open-sourcable
-Python modules. I've got my eye on our validation module and our lightweight
-SQLAlchemy ⟷ JSON module. We're also taking a look at writing some API wrappers
-for the new API. These will be open source, of course.
+poor. We plan to change this. I can personally see some gaps in the open source
+world when it comes to building things with Flask, and we have filled many of
+them during our work on API 2. We have plans on pulling our work out into
+independent, open-sourcable Python modules. I've got my eye on our validation
+module and our lightweight SQLAlchemy ⟷ JSON module. We're also taking a look at
+writing some API wrappers for the new API. These will be open source, of course.
 
 ## Engineering Blog
 
