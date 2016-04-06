@@ -7,9 +7,9 @@ layout: post
 ---
 
 The Linode API was first introduced 7 years ago, and its age is showing. We
-all know it could be a lot better. However, I'm happy to announce that after
+all know it could be better. So I'm happy to announce that after
 months of hard work from the Linode dev team, API 2 is entering
-alpha phase. We've designed it from the ground up with a modern
+alpha phase. We built it from the ground up with a modern
 RESTful design, and I think you'll like it.
 
 To get into the alpha, visit [alpha.linode.com](https://alpha.linode.com) and
@@ -19,7 +19,7 @@ new API. The developer hub is a [Jekyll](http://jekyllrb.com/) project on GitHub
 Pages, and is open source:
 [github.com/Linode/developers](https://github.com/Linode/developers). We're
 hoping that you can help us by building libraries and tools in your favorite
-languages; and contributing guides and improvements to the developer
+languages, and contributing guides and improvements to the developer
 documentation. We're also accepting bug reports, feature requests, and other
 feedback via
 [GitHub issues](https://github.com/Linode/developers/issues).
@@ -28,7 +28,7 @@ feedback via
 
 Previously, you made 4 API calls to create a living, breathing Linode. It was
 pretty bad, so we streamlined it. Many of the low-level decisions
-(like disk layout and boot configs) are now given sane defaults. Now:
+(like disk layout and boot configs) are given sane defaults. Now:
 
 <div id="curl-example">
 {% highlight bash %}
@@ -56,8 +56,8 @@ document.getElementById('curl-example').innerHTML = html;
 This creates a new Linode 1024 (`serv_112`) in Newark (`dctr_6`) with Debian 8.1
 (`dist_140`) installed. The response is a [Linode
 object](http://developers.linode.com/reference/#object-linodes)
-as JSON.  Since we're using the shell I'm going to use
-[jq](https://stedolan.github.io/jq/), a json parser, to grab the ID:
+as JSON. Since we're using the shell I'm going to use
+[jq](https://stedolan.github.io/jq/), a command line JSON parser, to grab the ID:
 
 {% highlight bash %}
 linode_id=$(echo "$linode" | jq -r .linode.id)
@@ -90,13 +90,12 @@ And while this whole process has been greatly simplified, we
 haven't left power users behind. There are still API endpoints for doing
 things the hard way.
 
-Additionally, we've done away with API keys in favor of OAuth tokens. OAuth has been the hot
-new thing for a while now. With Linode OAuth, you can now create applications
-that rely on a user Linode account for access and authentication.
-# This sentence sucked/sucks ^
-When you sit down to make something with the Linode API, you'll need first
-request an [invite](https://alpha.linode.com) then register your client at [login.alpha.linode.com](https://login.alpha.linode.com). Then head over to the
-[authentication docs](https://developers.linode.com/reference/#authentication)
+Additionally, we've done away with API keys in favor of OAuth tokens. OAuth has
+been the hot new thing for a while now. You can now create access tokens that
+allow users to offer you a fine-grained set of permissions.
+When you sit down to make something with the Linode API, you'll need to first
+request an [invite](https://alpha.linode.com) then register your client at [login.alpha.linode.com](https://login.alpha.linode.com).
+Finally, head over to the [authentication docs](https://developers.linode.com/reference/#authentication)
 to get started.
 
 ## Linode + Flask == ❤️
@@ -113,7 +112,7 @@ more reliable.
 
 We've had a pretty interesting journey writing Linode's new API from scratch.
 There were many challenges replacing a large, established codebase and infrastructure.
-I consider this a positive thing, however. It gave us a chance to refine our application design
+I consider this a positive thing. It gave us a chance to refine our application design
 early on, before the codebase was too big to effectively undertake large scale
 refactorings. I am very proud of what we've built, and we want to
 share some of the innovations we've made with the rest of the world.
