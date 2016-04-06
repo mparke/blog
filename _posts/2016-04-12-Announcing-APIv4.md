@@ -1,6 +1,6 @@
 ---
 # vim: tw=80
-title: Announcing Linode API 3 & Engineering Blog
+title: Announcing Linode API 4 & Engineering Blog
 author: Drew DeVault
 avatar: https://www.linode.com/media/images/employees/ddevault.png
 layout: post
@@ -8,7 +8,7 @@ layout: post
 
 The Linode API was first introduced 7 years ago, and its age is showing. We
 all know it could be better. So I'm happy to announce that after
-months of hard work from the Linode dev team, API 3 is entering
+months of hard work from the Linode dev team, API 4 is entering
 alpha phase. We built it from the ground up with a modern
 RESTful design, and I think you'll like it.
 
@@ -40,7 +40,7 @@ linode=$(curl -H "Content-Type: application/json" \
         "service": "serv_112",
         "source": "dist_140",
         "root_pass": "hunter2"
-    }' https://api.alpha.linode.com/v3/linodes)
+    }' https://api.alpha.linode.com/v4/linodes)
 {% endhighlight %}
 </div>
 
@@ -67,7 +67,7 @@ And now we can boot it:
 {% highlight bash %}
 curl -H "Content-Type: application/json" \
     -H "Authorization: token $token" \
-    -X POST https://api.alpha.linode.com/v3/linodes/$linode_id/boot
+    -X POST https://api.alpha.linode.com/v4/linodes/$linode_id/boot
 {% endhighlight %}
 
 That's it! You can watch the status change to "running" as it's provisioned and
@@ -75,7 +75,7 @@ booted:
 
 {% highlight bash %}
 curl -H "Authorization: token $token" \
-    https://api.alpha.linode.com/v3/linodes/$linode_id | jq .status
+    https://api.alpha.linode.com/v4/linodes/$linode_id | jq .status
 {% endhighlight %}
 
 Once it's up, you can log into your new Linode.
@@ -104,7 +104,7 @@ in the past may have been surprised to find ColdFusion in our stack (myself
 included). Linode has been around for a long time, and what got the job done
 10 years ago is rarely the best choice for tomorrow. So with security and
 performance in mind, we wrote the new API in Python. All of the devs here
-are very excited, and the new design is really solid. API 3
+are very excited, and the new design is really solid. API 4
 uses tools like [Flask](http://flask.pocoo.org/) and [SQLAlchemy](http://www.sqlalchemy.org/)
 and is delightful to work on. The new API is also stateless and easier to distribute and make
 more reliable.
@@ -119,7 +119,7 @@ share some of the innovations we've made with the rest of the world.
 Linode's current [open source offerings](https://github.com/Linode) are pretty
 poor. This will change. I can personally see gaps in the open source
 world when it comes to building things with Flask, and we have filled many of
-them during our work on API 3. We have plans on pulling our work out into
+them during our work on API 4. We have plans on pulling our work out into
 independent, open-sourcable Python modules. Personally, I've got my eye on our validation
 module and our lightweight SQLAlchemy ⟷ JSON module. We're also taking a look at
 writing some API wrappers for the new API. These will be open source, of course.
@@ -134,7 +134,7 @@ We're shipping the alpha with a brand new Python API wrapper,
 {% highlight python %}
 >>> from linode import LinodeClient
 >>> client = LinodeClient("a valid oauth token",
-...     base_url="https://api.alpha.linode.com/v3")
+...     base_url="https://api.alpha.linode.com/v4")
 >>> service = client.get_services(Service.label == "Linode 1024")[0]
 >>> datacenter = client.get_datacenters(Datacenter.label == "Newark, NJ")[0]
 >>> distro = client.get_distributions(Distribution.label == "Ubuntu 14.04")[0]
