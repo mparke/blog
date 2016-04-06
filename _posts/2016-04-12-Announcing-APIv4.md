@@ -87,7 +87,10 @@ ssh root@$linode_ip
 
 And while this whole process has been greatly simplified, we
 haven't left power users behind. There are still API endpoints for doing
-things the hard way.
+things the hard way. We currently support many of the features that are already
+supported by the old API, and we're working towards supporting even more
+features than that. Our goal is to support every feature of Linode via the new
+API.
 
 Additionally, we've done away with API keys in favor of OAuth tokens. OAuth has
 been the hot new thing for a while now. You can now create access tokens that
@@ -102,28 +105,28 @@ to get started.
 Curious developers who've visited our [careers](https://linode.com/careers) page
 in the past may have been surprised to find ColdFusion in our stack (myself
 included). Linode has been around for a long time, and what got the job done
-10 years ago is rarely the best choice for tomorrow. So with security and
-performance in mind, we wrote the new API in Python. All of the devs here
+10 years ago is rarely the best choice for tomorrow. So with maintainability and
+quality in mind, we wrote the new API in Python. All of the devs here
 are very excited, and the new design is really solid. API 4
 uses tools like [Flask](http://flask.pocoo.org/) and [SQLAlchemy](http://www.sqlalchemy.org/)
 and is delightful to work on. The new API is also stateless and easier to distribute and make
 more reliable.
 
 We've had a pretty interesting journey writing Linode's new API from scratch.
-There were many challenges replacing a large, established codebase and infrastructure.
-I consider this a positive thing. It gave us a chance to refine our application design
-early on, before the codebase was too big to effectively undertake large scale
-refactorings. I am very proud of what we've built, and we want to
-share some of the innovations we've made with the rest of the world.
+There were many challenges replacing a large, established codebase and
+infrastructure. Facing these challenges gave us a chance to refine our
+application design early on, before the codebase was too big to effectively
+undertake large scale refactorings. I am very proud of what we've built, and we
+want to share some of the innovations we've made with the open source world.
 
 Linode's current [open source offerings](https://github.com/Linode) are pretty
-poor. This will change. I can personally see gaps in the open source
-world when it comes to building things with Flask, and we have filled many of
-them during our work on API 4. We have plans on pulling our work out into
-independent, open-sourcable Python modules. Personally, I've got my eye on our validation
-module and our lightweight SQLAlchemy ⟷ JSON module. We're also taking a look at
-writing some API wrappers for the new API. These will be open source, of course.
-In fact...
+sparse. This will change. I can personally see gaps in the open source world
+when it comes to building things with Flask, and we have filled many of them
+during our work on API 4. We have plans on pulling our work out into
+independent, open-sourcable Python modules. Personally, I've got my eye on our
+validation module and our lightweight SQLAlchemy ⟷ JSON module. We're also
+taking a look at writing some API wrappers for the new API. These will be open
+source, of course.  In fact...
 
 ## pip install linode-api
 
