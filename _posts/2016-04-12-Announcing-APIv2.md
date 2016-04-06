@@ -6,10 +6,10 @@ avatar: https://www.linode.com/media/images/employees/ddevault.png
 layout: post
 ---
 
-The Linode API was first introduced 7 years ago, and it's showing its age. We
-all know it could be a lot better. However, I'm happy to announce that after
-months of hard work from the dev team here at Linode, API 2 is entering the
-alpha phase. We've redesigned it from the ground up with a much more modern
+The Linode API was first introduced 7 years ago, and its age is showing. We
+all know it could be better. So I'm happy to announce that after
+months of hard work from the Linode dev team, API 2 is entering
+alpha phase. We built it from the ground up with a modern
 RESTful design, and I think you'll like it.
 
 To get into the alpha, visit [alpha.linode.com](https://alpha.linode.com) and
@@ -21,14 +21,14 @@ Pages, and is open source:
 hoping that you can help us by building libraries and tools in your favorite
 languages, and contributing guides and improvements to the developer
 documentation. We're also accepting bug reports, feature requests, and other
-feedback in the form of
-[GitHub issues](https://github.com/Linode/developers/issues) on the same
-repository.
+feedback via
+[GitHub issues](https://github.com/Linode/developers/issues).
 
 ## At a glance
 
-Previously, it required 4 API calls to create a living, breathing Linode. That's
-pretty bad. We've streamlined it quite a bit. Now:
+Previously, you made 4 API calls to create a living, breathing Linode. It was
+pretty bad, so we streamlined it. Many of the low-level decisions
+(like disk layout and boot configs) are given sane defaults. Now:
 
 <div id="curl-example">
 {% highlight bash %}
@@ -54,13 +54,10 @@ document.getElementById('curl-example').innerHTML = html;
 </script>
 
 This creates a new Linode 1024 (`serv_112`) in Newark (`dctr_6`) with Debian 8.1
-(`dist_140`) installed. All of the low-level decisions we used to ask you to make
-about things like disk layout and boot configs are now given sane defaults. We
-haven't left power users behind, though, there are still API endpoints for doing
-it the hard way. The response is a [Linode
+(`dist_140`) installed. The response is a [Linode
 object](http://developers.linode.com/reference/#object-linodes)
-as JSON.  Since we're using the shell, I'm going to use
-[jq](https://stedolan.github.io/jq/) to grab the ID:
+as JSON. Since we're using the shell I'm going to use
+[jq](https://stedolan.github.io/jq/), a command line JSON parser, to grab the ID:
 
 {% highlight bash %}
 linode_id=$(echo "$linode" | jq -r .linode.id)
@@ -74,7 +71,7 @@ curl -H "Content-Type: application/json" \
     -X POST https://api.alpha.linode.com/v2/linodes/$linode_id/boot
 {% endhighlight %}
 
-That's it! You can watch its status change to "running" as its provisioned and
+That's it! You can watch the status change to "running" as it's provisioned and
 booted:
 
 {% highlight bash %}
@@ -82,51 +79,49 @@ curl -H "Authorization: token $token" \
     https://api.alpha.linode.com/v2/linodes/$linode_id | jq .status
 {% endhighlight %}
 
-Once it's up, you can log into your new Linode!
+Once it's up, you can log into your new Linode.
 
 {% highlight bash %}
 linode_ip=$(echo "$linode" | jq -r .linode.ip_addresses.public.ipv4[0])
 ssh root@$linode_ip
 {% endhighlight %}
 
-We've done away with API keys in favor of OAuth tokens. OAuth has been the hot
-new thing for a while now. This lets you make applications that your users can
-log into with their Linode account to get access to only the things you need.
-When you sit down to make something with the Linode API, you need to register
-your client at [login.alpha.linode.com](https://login.alpha.linode.com) (you'll
-have to [get an invite](https://alpha.linode.com) first). Then you can head over
-to the
-[authentication docs](https://developers.linode.com/reference/#authentication)
+And while this whole process has been greatly simplified, we
+haven't left power users behind. There are still API endpoints for doing
+things the hard way.
+
+Additionally, we've done away with API keys in favor of OAuth tokens. OAuth has
+been the hot new thing for a while now. You can now create access tokens that
+allow users to offer you a fine-grained set of permissions.
+When you sit down to make something with the Linode API, you'll need to first
+request an [invite](https://alpha.linode.com) then register your client at [login.alpha.linode.com](https://login.alpha.linode.com).
+Finally, head over to the [authentication docs](https://developers.linode.com/reference/#authentication)
 to get started.
 
 ## Linode + Flask == ❤️
 
 Curious developers who've visited our [careers](https://linode.com/careers) page
 in the past may have been surprised to find ColdFusion in our stack (myself
-included). Unfortunately, many of them probably stopped reading after that
-(myself excluded). Linode has been around for a long time, and we all know how
-codebases tend to look after over a decade of use. The new API, however, is
-written in Python! All of the devs here are happy to be moving to Python, and
-the new design is really solid. API 2 uses tools like
-[Flask](http://flask.pocoo.org/) and [SQLAlchemy](http://www.sqlalchemy.org/)
-and is delightful to work on. It's also a lot easier to avoid and mitigate
-security issues on a fresh Python codebase than on a 13 year-old ColdFusion
-codebase. The new API is also stateless and easier to distribute and make
+included). Linode has been around for a long time, and what got the job done
+10 years ago is rarely the best choice for tomorrow. So with security and
+performance in mind, we wrote the new API in Python. All of the devs here
+are very excited, and the new design is really solid. API 2
+uses tools like [Flask](http://flask.pocoo.org/) and [SQLAlchemy](http://www.sqlalchemy.org/)
+and is delightful to work on. The new API is also stateless and easier to distribute and make
 more reliable.
 
-As we've been writing Linode's new API from scratch, we've had a pretty
-interesting journey. Having a large, established set of codebases and
-infrastructure in place gave us a lot of challenges upfront. I consider this a
-positive thing, because it gave us a chance to refine our application design
+We've had a pretty interesting journey writing Linode's new API from scratch.
+There were many challenges replacing a large, established codebase and infrastructure.
+I consider this a positive thing. It gave us a chance to refine our application design
 early on, before the codebase was too big to effectively undertake large scale
-refactorings. I'm proud of what we've come up with as a result, and we want to
+refactorings. I am very proud of what we've built, and we want to
 share some of the innovations we've made with the rest of the world.
 
 Linode's current [open source offerings](https://github.com/Linode) are pretty
-poor. We plan to change this. I can personally see some gaps in the open source
+poor. This will change. I can personally see gaps in the open source
 world when it comes to building things with Flask, and we have filled many of
 them during our work on API 2. We have plans on pulling our work out into
-independent, open-sourcable Python modules. I've got my eye on our validation
+independent, open-sourcable Python modules. Personally, I've got my eye on our validation
 module and our lightweight SQLAlchemy ⟷ JSON module. We're also taking a look at
 writing some API wrappers for the new API. These will be open source, of course.
 In fact...
@@ -161,8 +156,7 @@ app](https://github.com/Linode/python-api/tree/master/examples/oauth-flow).
 You may have noticed that this is not the [Linode Blog](https://blog.linode.com/),
 which is a marketing tool for announcing new end-user features and such.
 Following in the footsteps of several other engineering teams, we've established
-a seperate blog for Linode engineers to talk about all the cool things we're
-working on. This blog is just for engineering content - no marketing. If you're
+a separate blog for Linode engineers to talk about the cool things we're
+working on. This blog is for engineering content only - no marketing. If you're
 interested in reading about the stuff we work on, subscribe to
-[RSS](http://localhost:4000/feed.xml) or just keep an eye on Hacker News (gotta
-get that sweet karma somehow).
+[RSS](http://localhost:4000/feed.xml).
