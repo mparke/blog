@@ -66,7 +66,6 @@ And now we can boot it:
 
 {% highlight bash %}
 curl -H "Content-Type: application/json" \
-    -H "Authorization: token $token" \
     -X POST https://api.alpha.linode.com/v4/linodes/$linode_id/boot
 {% endhighlight %}
 
