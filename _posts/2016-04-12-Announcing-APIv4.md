@@ -70,12 +70,12 @@ curl -H "Content-Type: application/json" \
     -X POST https://api.alpha.linode.com/v4/linodes/$linode_id/boot
 {% endhighlight %}
 
-That's it! You can watch the status change to "running" as it's provisioned and
+That's it! You can watch the state change to "running" as it's provisioned and
 booted:
 
 {% highlight bash %}
 curl -H "Authorization: token $token" \
-    https://api.alpha.linode.com/v4/linodes/$linode_id | jq .status
+    https://api.alpha.linode.com/v4/linodes/$linode_id | jq .state
 {% endhighlight %}
 
 Once it's up, you can log into your new Linode.
