@@ -161,4 +161,4 @@ Following in the footsteps of several other engineering teams, we've established
 a separate blog for Linode engineers to talk about the cool things we're
 working on. This blog is for engineering content only - no marketing. If you're
 interested in reading about the stuff we work on, subscribe to
-[RSS](http://localhost:4000/feed.xml).
+[RSS](/feed.xml).
