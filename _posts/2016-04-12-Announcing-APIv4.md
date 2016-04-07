@@ -36,9 +36,9 @@ token="a valid oauth token"
 linode=$(curl -H "Content-Type: application/json" \
     -H "Authorization: token $token" \
     -X POST -d '{
-        "datacenter": "dctr_6",
-        "service": "serv_112",
-        "source": "dist_140",
+        "datacenter": "datacenter_6",
+        "service": "service_112",
+        "source": "distro_140",
         "root_pass": "hunter2"
     }' https://api.alpha.linode.com/v4/linodes)
 {% endhighlight %}
@@ -52,8 +52,8 @@ html = html.replace("hunter2", password);
 document.getElementById('curl-example').innerHTML = html;
 </script>
 
-This creates a new Linode 1024 (`serv_112`) in Newark (`dctr_6`) with Debian 8.1
-(`dist_140`) installed. The response is a [Linode
+This creates a new Linode 1024 (`service_112`) in Newark (`datacenter_6`) with
+Debian 8.1 (`distro_140`) installed. The response is a [Linode
 object](http://developers.linode.com/reference/#object-linodes)
 as JSON. Since we're using the shell I'm going to use
 [jq](https://stedolan.github.io/jq/), a command line JSON parser, to grab the ID:
