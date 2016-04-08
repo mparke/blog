@@ -131,7 +131,7 @@ source, of course.  In fact...
 
 We're shipping the alpha with a brand new Python API wrapper,
 [linode-api](https://warehouse.python.org/project/linode-api/)
-([GitHub](https://github.com/Linode/python-api)). Check it out:
+([GitHub](https://github.com/Linode/python-linode-api)). Check it out:
 
 {% highlight python %}
 >>> from linode import LinodeClient
@@ -150,7 +150,7 @@ syntax that's very similar to SQLAlchemy's syntax (the server-side
 implementation of this is another candidate for open source). The Python
 wrapper also includes a login.linode.com client that can help you implement an
 OAuth flow - check out the [example
-app](https://github.com/Linode/python-api/tree/master/examples/oauth-flow).
+app](https://github.com/Linode/python-linode-api/tree/master/examples/install-on-linode).
 
 ## Engineering Blog
 
