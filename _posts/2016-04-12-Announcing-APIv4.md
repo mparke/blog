@@ -1,6 +1,6 @@
 ---
 # vim: tw=80
-title: Announcing Linode API 4 & Engineering Blog
+title: Announcing Linode API 4 Public Alpha
 author: Drew DeVault
 avatar: https://www.linode.com/media/images/employees/ddevault.png
 layout: post
