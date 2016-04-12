@@ -130,7 +130,7 @@ source, of course.  In fact...
 ## pip install linode-api
 
 We're shipping the alpha with a brand new Python API wrapper,
-[linode-api](https://warehouse.python.org/project/linode-api/)
+[linode-api](https://pypi.python.org/pypi/linode-api)
 ([GitHub](https://github.com/Linode/python-linode-api)). Check it out:
 
 {% highlight python %}
