@@ -15,7 +15,7 @@ call](http://www.joelonsoftware.com/articles/fog0000000069.html) to rewrite it
 from the ground up based on the new API.
 
 The new manager uses the
-[3-clause BSD license](https://github.com/linode/manager/blob/gh-pages/LICENSE)
+[3-clause BSD license](https://github.com/linode/manager/blob/master/LICENSE)
 and is based on tech like [React.js](http://facebook.github.io/react/),
 [Redux](http://redux.js.org/), [Webpack](https://webpack.github.io/), and more
 cool new stuff.  I firmly believe that React+Redux is the silver bullet that
