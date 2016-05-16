@@ -42,7 +42,7 @@ Preston-Werner (cofounder of GitHub) famously said that you should "[open source
 (almost)
 everything](http://tom.preston-werner.com/2011/11/22/open-source-everything.html)"
 and argues that you should open source anything that isn't part of your core
-business value. Most of our core business value comes from out excellent support
+business value. Most of our core business value comes from our excellent support
 team and our high-performance server fleet, as well as some of the software we are keeping
 proprietary, like our API and everything behind it. You could make the argument
 (and some of us did during this discussion) that the manager is part of our
