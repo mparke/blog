@@ -13,8 +13,8 @@ through the steps required to get the new Manager up and running on your local
 machine. This process can also be extended to building any application on the
 new API.
 
-Note: the Manager is in its infancy. At any point code during this time, pages
-may be broken, incomplete, and have no relation to the final product.
+Note: the Manager is in its infancy. During this time, pages may be broken,
+incomplete, and have no relation to the final product.
 
 Before you begin, you must have an account on our [Alpha](https://alpha.linode.com/)
 service. Once you are logged-in to the Alpha [Login](https://login.alpha.linode.com/login)
