@@ -26,24 +26,24 @@ hit Register. Make sure to save the client id and secret to a file.
 Now clone the Manager [repo](https://github.com/linode/manager). Make sure npm is
 installed then run the following to pull in all dependencies:
 
-{% highlight bash %}
+```bash
 $ npm install
-{% endhighlight %}
+```
 
 Next, create a file "src/secrets.js". Write the following to that file:
 
-{% highlight javascript %}
+```javascript
 export const clientId = '<MY_CLIENT_ID>';
 export const clientSecret = '<MY_CLIENT_SECRET>';
-{% endhighlight %}
+```
 
 Where the client id and secret are the same as you saved earlier.
 
 Finally, run the manager:
 
-{% highlight bash %}
+```bash
 $ npm start
-{% endhighlight %}
+```
 
 Now in your browser, navigate to [localhost:3000](http://localhost:3000). It
 will take a few seconds to build all the files on the first load.
