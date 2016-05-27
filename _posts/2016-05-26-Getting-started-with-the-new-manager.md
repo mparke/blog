@@ -23,6 +23,10 @@ is a box. Click Manage API clients. Then fill out the application name
 (Linode Manager) and callback URL (http://localhost:3000/oauth/callback). Then
 hit Register. Make sure to save the client id and secret to a file.
 
+Note: if you pick a callback url that is not on localhost:3000, you will need to
+update the APP_ROOT variable in src/constants.js to point to the different
+server.
+
 Now clone the Manager [repo](https://github.com/linode/manager). Make sure npm is
 installed then run the following to pull in all dependencies:
 
