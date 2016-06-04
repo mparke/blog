@@ -163,7 +163,7 @@ coverage for all of the things we intend to test right now, and we're diving
 into fleshing out our application. React is a radical change for the JS
 community, but thanks to it I finally feel good about writing JavaScript. On the
 shoulders of React we are finally able to build a maintainable, scalable, and
-elegant large-scale codebase. It feels good, doesn't it?
+elegant large-scale codebase in JavaScript. It feels good, doesn't it?
 
 ## Problems we ran into
 
