@@ -69,8 +69,8 @@ respond to those changes in your application. Angular is also well tested and
 the community has many examples, though some may be outdated (which is a problem
 for all three of the options we're looking at today).
 
-There are disadvantages, though. Though Google has promised improvements to
-this, Angular 2 is pretty slow. There's lots of debugging things going on and
+There are some disadvantages to Angular. Though Google has promised improvements
+to this, Angular 2 is pretty slow. There's lots of debugging things going on and
 the startup times are rough. The transition from Angular 1 to Angular 2 is also
 very jarring and those with preconceptions about how Angular works are going to
 have a hard time. Some people also criticize the "do everything" approach that
