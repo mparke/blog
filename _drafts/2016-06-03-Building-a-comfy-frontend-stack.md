@@ -173,8 +173,8 @@ elegant large-scale codebase in JavaScript. It feels good, doesn't it?
 I almost wrote the prototype from scratch. I originally used gearon's [Redux hot
 loader starter kit](https://github.com/gaearon/react-hot-boilerplate), which
 gives you the bare minimum necessary to get React and Redux hot loading in an
-application. We added the rest over time and let me tell you that it is a
-massive pain in the ass. We started with this:
+application. We added the rest over time, and it has been a massive pain in the
+ass. We started with this:
 
 * React.js
 * Redux reducers and actions
