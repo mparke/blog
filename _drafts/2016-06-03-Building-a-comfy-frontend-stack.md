@@ -13,10 +13,12 @@ we had a long period of internal prototyping and developer discussions to find
 the ideal frontend stack for the project. Three main prototypes emerged, based
 on [React.js](http://facebook.github.io/react/),
 [Angular](https://angularjs.org/), and [Mithril](http://mithril.js.org/). Each
-of these platforms ships a different broader design philosophy. React.js brings
-a lot of functional programming concepts to the table. Angular is a declarative
-MVC framework and lives alongside things like
-[Knockout.js](http://knockoutjs.com/) and Microsoft's
+of these platforms ships a different broader design philosophy. React.js (note:
+when I talk about React.js, I'm referring to
+React+[Redux](https://github.com/reactjs/redux)) brings a lot of functional
+programming concepts to the table. Angular is a declarative MVC framework and
+lives alongside things like [Knockout.js](http://knockoutjs.com/) and
+Microsoft's
 [WPF](https://msdn.microsoft.com/en-us/library/ms754130(v=vs.110).aspx)
 platform. Mithril is a sort of balance between both, with an MVC-driven design
 with some similarities to React. We also tried several different variations on
@@ -104,21 +106,19 @@ prevailing thought is that Flux isn't quite right, either).
 
 ## React.js & ES6
 
-React.js is Facebook's offering for the new age of JavaScript. It takes
-functional programming paradigms and introduces them to the web. React.js has
-evolved a lot over the past couple of years, so to clarify: I'm going to be
-talking about it only in the context of
-React.js+[Redux](https://github.com/reactjs/redux), which is the best way to
-write React.js code today. The idea is this: you describe the state of your
-application in a single JavaScript object. If you have a checkbox that toggles
-the visibility of foobar, it's in your state as `foobar: true`.  You then write
-your UI as a [pure function](https://en.wikipedia.org/wiki/Pure_function) of
-your state. Given this state, you return either `<input type="checkbox" />` or
-`<input type="checkbox" checked="checked" />`. When the checkbox is ticked, you
-create a new state that has that boolean flipped and rerender your UI. Your
-entire application is described in this way, and it ends up being a single
-JavaScript function that you can pass a state object into it and it
-returns what the DOM should be when the application is in that state.
+React.js is Facebook's offering for the new age of JavaScript, and Redux is a
+design philosophy that most people are using with React these days. It takes
+functional programming paradigms and introduces them to the web. The idea is
+this: you describe the state of your application in a single JavaScript object.
+If you have a checkbox that toggles the visibility of foobar, it's in your state
+as `foobar: true`.  You then write your UI as a [pure
+function](https://en.wikipedia.org/wiki/Pure_function) of your state. Given this
+state, you return either `<input type="checkbox" />` or `<input type="checkbox"
+checked="checked" />`. When the checkbox is ticked, you create a new state that
+has that boolean flipped and rerender your UI. Your entire application is
+described in this way, and it ends up being a single JavaScript function that
+you can pass a state object into it and it returns what the DOM should be when
+the application is in that state.
 
 This sounds pretty radical to someone who is used to imperative programming
 instead of functional programming, like I was pre-React. An idiomatic
