@@ -13,8 +13,9 @@ we had a long period of internal prototyping and developer discussions to find
 the ideal frontend stack for the project. Three main prototypes emerged, based
 on [React.js](http://facebook.github.io/react/),
 [Angular](https://angularjs.org/), and [Mithril](http://mithril.js.org/). Each
-of these platforms ships a different broader design philosophy. React.js (note:
-when I talk about React.js, I'm referring to
+of these platforms ships a different broader design philosophy.
+
+React.js (note: when I talk about React.js, I'm referring to
 React+[Redux](https://github.com/reactjs/redux)) brings a lot of functional
 programming concepts to the table. Angular is a declarative MVC framework and
 lives alongside things like [Knockout.js](http://knockoutjs.com/) and
