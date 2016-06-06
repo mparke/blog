@@ -72,12 +72,12 @@ the community has many examples, though some may be outdated (which is a problem
 for all three of the options we're looking at today).
 
 There are some disadvantages to Angular. Though Google has promised improvements
-to this, Angular 2 is pretty slow. There's lots of debugging things going on and
-the startup times are rough. The transition from Angular 1 to Angular 2 is also
-very jarring and those with preconceptions about how Angular works are going to
-have a hard time. Some people also criticize the "do everything" approach that
-Angular takes, preferring the Unix philosophy where tools and libraries with a
-smaller scope are composed to fill the full picture.
+to this, Angular 2 is pretty slow. There are lots of debugging things going on
+and the startup times are rough. The transition from Angular 1 to Angular 2 is
+also very jarring and those with preconceptions about how Angular works are
+going to have a hard time. Some people also criticize the "do everything"
+approach that Angular takes, preferring the Unix philosophy where tools and
+libraries with a smaller scope are composed to fill the full picture.
 
 ## Mithril & ES5
 
