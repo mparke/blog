@@ -36,9 +36,9 @@ that we'd demonstrate several important things in the context of each framework:
 
 For bonus points we could show off anything your framework did that was
 particularly cool, like hot module reloading. I made a React prototype, my
-friend Marques took Angular, and another friend, Abe, did the Mithril prototype.
-Eventually we presented our prototypes and recommendations to the rest of the
-development team.
+colleagues Marques and Abe helped - Marques did the Angular 2 prototype, and Abe
+did the Mithril prototype. Eventually we presented our prototypes and
+recommendations to the rest of the development team.
 
 ## Angular 2 & TypeScript
 
