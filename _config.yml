@@ -1,5 +1,6 @@
 name: Linode Engineering
 description: Blog posts from Linode engineerings about engineering at Linode
+url: https://engineering.linode.com
 gems: [jekyll-paginate]
 sass:
     style: compressed
