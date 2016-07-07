@@ -5,6 +5,17 @@
 $root: "../styles/";
 @import "base";
 
+.header {
+    position: relative;
+
+    header {
+        position: absolute;
+        top: 15px;
+        width: 100%;
+        z-index: 99999;
+    }
+}
+
 .posts {
     .card {
         margin: 3rem 0;
