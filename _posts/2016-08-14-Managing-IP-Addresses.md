@@ -19,7 +19,7 @@ job.
 
 ## Accessing your Linode's IPs
 
-(In this iteration, we focused on IPv4 addresses only; IPv6 will be available
+(In this iteration we focused on IPv4 addresses only; IPv6 will be available
 in the API very soon.)
 
 As is the case with all other endpoints, you can list your IPs with
