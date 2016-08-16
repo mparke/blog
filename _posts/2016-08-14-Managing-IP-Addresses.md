@@ -28,7 +28,7 @@ a standard GET call:
 ```bash
 $ curl -H "Authorization: token <my-token>" \
     -H "Content-Type: application/json"
-    https://api.alpha.linode.com/v4/linodes/ipaddresses
+    https://api.alpha.linode.com/v4/linodes/ips
 ```
 
 For details regarding a specific IP, add the IP to the endpoint:
@@ -36,7 +36,7 @@ For details regarding a specific IP, add the IP to the endpoint:
 ```bash
 $ curl -H "Authorization: token <my-token>" \
     -H "Content-Type: application/json"
-    https://api.alpha.linode.com/v4/linodes/ipaddresses/123.45.67.89
+    https://api.alpha.linode.com/v4/linodes/ips/123.45.67.89
 ```
 
 #### POSTing for IP Allocation
@@ -47,7 +47,7 @@ IP per Linode. We do, however, offer a POST:
 ```bash
 $ curl -H "Authorization: token <my-token>" \
     -H "Content-Type: application/json"
-    https://api.alpha.linode.com/v4/linodes/ipaddresses
+    https://api.alpha.linode.com/v4/linodes/ips
     -X POST -d '{"type":"public"}'
 ```
 
