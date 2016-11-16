@@ -1,47 +1,47 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" href="https://www.linode.com/favicon.ico" type="image/x-icon" />
-        <link rel="alternate" title="RSS" href="http://engineering.linode.com/feed.xml">
-        <title>
-            {% if page.title %}
-                {% if page.override_title %}
-                    {{ page.title }}
-                {% else %}
-                    {{ page.title }} - Linode Engineering Blog
-                {% endif %}
-            {% else %}
-                Linode Engineering Blog
-            {% endif %}
-        </title>
-        <link rel="stylesheet" href="/css/blog.css" />
-    </head>
-    <body>
-        <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M3XXZX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M3XXZX');</script>
-        <!-- End Google Tag Manager -->
-        {{ content }}
-        <footer class="container">
-            <div class="row">
-                <div class="col-md-offset-12 text-right">
-                    <span class="text-muted">
-                        &copy; Linode 2016, CC-BY-SA 4.0<br />
-                        <a href="https://github.com/Linode/blog">
-                            Source available on GitHub
-                            <i class="fa fa-github"></i>
-                        </a>
-                    </span>
-                </div>
-            </div>
-        </footer>
-        <script src="/styles/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="/styles/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://www.linode.com/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" title="RSS" href="http://engineering.linode.com/feed.xml">
+    <title>
+      {% if page.title %}
+      {% if page.override_title %}
+      {{ page.title }}
+      {% else %}
+      {{ page.title }} - Linode Engineering Blog
+      {% endif %}
+      {% else %}
+      Linode Engineering Blog
+      {% endif %}
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M3XXZX"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M3XXZX');</script>
+    <!-- End Google Tag Manager -->
+    {{ content }}
+    <footer class="container">
+      <div class="row">
+        <div class="col-md-10 text-xs-right">
+          <span class="text-muted">
+            &copy; Linode 2016, CC-BY-SA 4.0<br />
+            <a href="https://github.com/Linode/blog">
+              Source available on GitHub
+              <i class="fa fa-github"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

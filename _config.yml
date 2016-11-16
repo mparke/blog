@@ -4,7 +4,8 @@ url: https://engineering.linode.com
 gems: [jekyll-paginate]
 sass:
     style: compressed
-    sass_dir: styles/
+    sass_dir: css
 paginate: 5
-paginate_path: "/archive/page:num/"
+paginate_path: "/archive/:num/"
 future: true
+plugins_dir: ./_plugins

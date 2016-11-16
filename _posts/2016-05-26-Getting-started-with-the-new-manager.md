@@ -4,6 +4,8 @@ title: Getting started with the new Manager
 author: Phil Eaton
 avatar: https://www.linode.com/media/images/employees/peaton.png
 layout: post
+tags:
+- Manager
 ---
 
 As you may have [seen](https://engineering.linode.com/2016/05/16/Announcing-the-new-open-source-manager.html),

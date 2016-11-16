@@ -4,6 +4,8 @@ title: IP Addresses in the Alpha API
 layout: post
 author: Josh Sager
 avatar: https://www.linode.com/media/images/employees/jsager.png
+tags:
+- APIv4
 ---
 In our latest development rollout of the Alpha API, we’ve started adding
 networking capabilities, beginning with public and private IPs for your Linodes.

@@ -3,6 +3,8 @@ title: Redesigning Endpoints, Creating Linodes with Backup Service, and Rebuildi
 layout: post
 author: Josh Sager
 avatar: https://www.linode.com/media/images/employees/jsager.png
+tags:
+- APIv4
 ---
 It's interesting how some of the biggest challenges we sometimes face as programmers
 have nothing to do with programming. Creating great products takes us beyond

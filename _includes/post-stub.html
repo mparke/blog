@@ -1,29 +1,10 @@
-<div class="card">
-    <div class="row">
-        <div class="col-md-2 text-centered">
-            <img class="avatar" alt="{{ include.post.author }}"
-                src="{{ include.post.avatar }}" />
-            <p class="attribution">
-                Published
-                <span class="date">
-                    {{ include.post.date | date_to_string }}
-                </span>
-                by
-                <span class="author">
-                    {{ include.post.author }}
-                </span>
-            </p>
-        </div>
-        <div class="col-md-10">
-            <h2>
-                <a href="{{ include.post.url }}">
-                {{ include.post.title }}
-                </a>
-            </h2>
-            {{ include.post.excerpt }}
-            <a href="{{ include.post.url }}" class="read-more">
-                Read more <i class="fa fa-caret-right"></i>
-            </a>
-        </div>
-    </div>
-</div>
+<article class="article excerpt">
+  <header class="article-header">
+    <div class="article-tags">{{ post.tags | join: ", " }}</div>
+    <h3 class="article-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <span class="article-date">{{ post.date | date_to_string }}</span>, by
+    <span class="article-author">{{ post.author }}</span>
+    <img class="article-avatar" src="{{ post.avatar }}" alt="{{ post.author }}" width="25" />
+  </header>
+  {{ post.excerpt }}
+</article>

@@ -4,6 +4,9 @@ title: The new, open source React.js Linode Manager
 layout: post
 author: Drew DeVault
 avatar: https://www.linode.com/media/images/employees/ddevault.png
+tags:
+- Manager
+- React/Redux
 ---
 
 Now that we've launched the

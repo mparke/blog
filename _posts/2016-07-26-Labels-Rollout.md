@@ -4,6 +4,8 @@ title: API Alpha Label Rollout
 layout: post
 author: William Smith
 avatar: https://www.linode.com/media/images/employees/wsmith.png
+tags:
+- APIv4
 ---
 After two more weeks of brain power and coffee, we have another fresh batch of
 updates for the API V4 Alpha!  This time around we've put a lot of effort into

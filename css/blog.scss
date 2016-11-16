@@ -2,71 +2,92 @@
 # Compiled by Jekyll
 ---
 
-$root: "../styles/";
-@import "base";
+body {
+    font-size: .9rem;
+}
 
-.header {
-    position: relative;
+h1 {
+    font-size: 2rem;
+}
 
-    header {
-        position: absolute;
-        top: 15px;
-        width: 100%;
-        z-index: 99999;
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+body > header {
+    background: #333;
+    height: 59px;
+    line-height: 59px;
+    margin-bottom: 15px;
+
+    .navbar-brand {
+        float: none;
+        padding: 0;
+        line-height: 59px;
+
+        img {
+            position: relative;
+            top: -2px;
+        }
+    }
+
+    .nav-title {
+        font-size: 20px;
+    }
+
+    .nav-text {
+        color: white;
+
+        & a {
+            color: white;
+        }
     }
 }
 
-.posts {
-    .card {
-        margin: 3rem 0;
-        padding: 1rem;
+sidebar {
+    h3 {
+        color: #666;
+    }
+
+    section:not(:first-of-type) {
+        padding-top: 14px;
+    }
+
+    a {
+        color: #999;
+    }
+
+    .topic:not(:last-of-type), .recommendation:not(:last-of-type) {
+        padding-bottom: 7px;
     }
 }
 
-.attribution {
-    color: #999;
+.article {
+    &.excerpt {
+        padding-bottom: 14px;
+    }
 
-    span {
-        display: block;
-        color: #000;
+    &-tags {
+        color: #666;
+    }
+
+    &-title {
+        padding: 7px 0;
+    }
+
+    &-header {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 14px;
+        margin-bottom: 14px;
     }
 }
 
-.post-attrib {
-    float: left;
-    width: 11em;
-    margin: 0 2rem 1rem 0;
-
-    img {
-        margin-top: -1rem;
-        background: white;
-    }
+footer {
+    padding-top: 14px;
 }
 
-.avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
-    box-shadow: 0 0 2px 2px #888;
-    margin-bottom: 5px;
-}
-
-.title {
-    margin-top: 2rem;
-}
-
-.back-link {
-    font-size: 1.25rem;
-    position: absolute;
-    left: 0;
-}
-
-.file {
-    cursor: inherit;
-}
-
-iframe {
-    margin: 0 auto;
-}
-
-@import "../css/syntax";
+@import "./syntax.scss";

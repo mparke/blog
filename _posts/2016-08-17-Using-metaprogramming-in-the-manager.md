@@ -4,6 +4,8 @@ title: Connecting our API to Redux with higher-order functions
 layout: post
 author: Drew DeVault
 avatar: https://www.linode.com/media/images/employees/ddevault.png
+tags:
+- Manager
 ---
 
 In our work on the

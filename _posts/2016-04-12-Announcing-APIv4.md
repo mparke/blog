@@ -4,6 +4,9 @@ title: Announcing Linode API 4 Public Alpha
 author: Drew DeVault
 avatar: https://www.linode.com/media/images/employees/ddevault.png
 layout: post
+tags:
+- APIv4
+- Python/Flask
 ---
 
 The Linode API was first introduced 7 years ago, and its age is showing. We

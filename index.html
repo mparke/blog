@@ -4,18 +4,24 @@ layout: base
 
 {% include header.html %}
 <div class="container posts">
-    {% for post in site.posts limit:5 %}
-    {% include post-stub.html post=post %}
-    {% endfor %}
-    {% if site.posts.size > 5 %}
-    <div class="pull-right" style="margin-bottom: 2rem;">
-        <a href="/archive/page2/" class="btn btn-info">
-            Page 2
-            <i class="fa fa-caret-right"></i>
-        </a>
+  <div class="row">
+    <div class="col-md-3">
+      {% include sidebar.html %}
     </div>
-    {% endif %}
-    {% if site.posts.size == 0 %}
-        <p class="text-centered"><em>There are no posts to show here.</em></p>
-    {% endif %}
+    <div class="col-md-7">
+      {% for post in site.posts limit:5 %}
+      {% include post-stub.html post=post %}
+      {% endfor %}
+      {% if site.posts.size > 5 %}
+      <div class="pull-right" style="margin-bottom: 2rem;">
+        <a href="/archive/page2/" class="btn btn-info">
+          Page 2
+          <i class="fa fa-caret-right"></i>
+        </a>
+      </div>
+      {% endif %}
+      {% if site.posts.size == 0 %}
+      <p class="text-centered"><em>There are no posts to show here.</em></p>
+      {% endif %}
+    </div>
 </div>

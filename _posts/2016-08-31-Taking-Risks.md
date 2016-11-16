@@ -3,6 +3,8 @@ title: Taking Risks - API Labels and Prefixes Rollback
 layout: post
 author: Will Smith
 avatar: https://www.linode.com/media/images/employees/wsmith.png
+tags:
+- APIv4
 ---
 Part of the intention behind development of the Linode API v4 Public Alpha 
 has been to try new

@@ -4,6 +4,8 @@ title: How we picked a comfortable frontend stack and settled into its ecosystem
 author: Drew DeVault
 avatar: https://www.linode.com/media/images/employees/ddevault.png
 layout: post
+tags:
+- Manager
 ---
 
 In the JavaScript world today there are tons of shiny new projects out there and

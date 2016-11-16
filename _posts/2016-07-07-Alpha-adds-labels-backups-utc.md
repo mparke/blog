@@ -4,6 +4,8 @@ title: API Alpha upgrades Plan, adds Labels, improves Backups, UTC
 layout: post
 author: James Ottinger
 avatar: https://www.linode.com/media/images/employees/jottinger.png
+tags:
+- APIv4
 ---
 We are proud to announce another round of features and improvements to the
 API Alpha. With this release, we're upgrading the test Linode plan,
