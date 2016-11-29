@@ -10,15 +10,15 @@ nothing says peace, love, and good tidings more than unraveling the
 wonderful world of IP addresses and networking.
 
 For the past few weeks we've been chipping away at how to best organize
-IP information, not only as it relates to Linodes, but
-also trying to foster an environment that future-proofs the API for
+IP information, as it relates to Linodes, but
+also to fostering an environment that future-proofs the API for
 features we want to add later.
 
 It became clear that maintaining IP information strictly within the
 confines of the `/linodes/instances` endpoint wouldn't be sufficient.
-Moving all IP functionality presented a challenge for us, however,
-since things like private IPs belong with their corresponding Linode.
-We think we did a good job of cleaning it all up, though.
+Moving all IP functionality presented a challenge to us, however,
+because things like private IPs belong with their corresponding Linode.
+We think we've done a good job cleaning it all up, though.
 
 ### Retrieving IP Collections, Allocating Public IPs
 
@@ -32,7 +32,7 @@ You can query a specific address by adding it to the call:
 
 ```
 $ curl -X GET \
-    https://api.alpha.linode.com/v4/networking/ipv4/123.44.55.66'
+    https://api.alpha.linode.com/v4/networking/ipv4/123.44.55.66
 ```
 
 POSTing to the IPv4 endpoint allocates a new public IP to a
@@ -90,21 +90,22 @@ simple `PUT` command:
 $ curl -X PUT \
     -H "Authorization: token $TOKEN" \
     -H "Content-Type: application/json" \
-        https://api.alpha.linode.com/v4/networking/ipv4/123.44.55.66' \
+        https://api.alpha.linode.com/v4/networking/ipv4/123.44.55.66 \
             -d '{ "rdns": "lavilla.strangiato.com" }'
 ```
 
 To reset RDNS, simply pass in a _null_ value: `{ "rdns": null }`
 
 ### IP-Assign
+
 Assigning an IPv4 to a Linode ("swapping" in the current
 API) has a few requirements:
 
 * You must, obviously, be the owner of both the IPv4 and the Linode you
-wish to assign it to
-* The IP and Linode must reside in the same datacenter
+wish to assign it to.
+* The IP and Linode must reside in the same datacenter.
 * The Linode your IPv4 is moving _from_ must have at least one public
-IPv4 remaining after the assignment
+IPv4 remaining after the assignment.
 
 Here is the syntax for assigning IPs to Linodes:
 
@@ -126,7 +127,7 @@ $ curl -X POST \
 We did manage to squeeze in a small change to backups, where now we are
 only returning backups that are available to you for use. We felt that
 returning all of the backup objects was taking a bit too long and giving
-you information that wasn't incredibly helpful, and we hope the change
+you information that wasn't incredibly helpful. We hope the change
 makes your lives just a little bit easier.
 
 
