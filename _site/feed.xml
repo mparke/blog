@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Linode Engineering</title>
+		<description>Blog posts from Linode engineerings about engineering at Linode</description>		
+		<link>https://engineering.linode.com</link>
+		<atom:link href="https://engineering.linode.com/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>API Alpha Events Rollout</title>
+				        
+				
+					<description>&lt;p&gt;The goal of the new API has never been to rewrite the same software with new technology.
+We intend to come out of this project with a new application that accomplishes the same legacy tasks,
+but has been designed from 13 years of practical experience.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 10 Nov 2016 00:00:00 -0500</pubDate>
+				<link>https://engineering.linode.com/2016/11/10/Events.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/11/10/Events.html</guid>
+			</item>
+		
+			<item>
+				<title>Redesigning Endpoints, Creating Linodes with Backup Service, and Rebuilding Linodes</title>
+				        
+				
+					<description>&lt;p&gt;It’s interesting how some of the biggest challenges we sometimes face as programmers
+have nothing to do with programming. Creating great products takes us beyond
+the ones and zeros and requires us to think more like “normal” people.
+&lt;em&gt;How&lt;/em&gt; will it be used? How can we make it &lt;em&gt;better&lt;/em&gt;? Can we solve the age-old problem
+of making a product easier for our customers and still maintain good design principles
+at the same time?&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Mon, 19 Sep 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/09/19/Redesigning-Endpoints-Backups-Rebuilding.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/09/19/Redesigning-Endpoints-Backups-Rebuilding.html</guid>
+			</item>
+		
+			<item>
+				<title>Taking Risks - API Labels and Prefixes Rollback</title>
+				        
+				
+					<description>&lt;p&gt;Part of the intention behind development of the Linode API v4 Public Alpha 
+has been to try new
+ideas and get feedback before customers are dependant on the API for their
+day-to-day work. This gives us the freedom to take risks we would
+otherwise shy away from without fear of long-term consequences if
+they didn’t pan out. If we didn’t end up rolling back at least once experimental
+feature, we would have missed the whole point and I wouldn’t be writing a blog post
+like this.  But we took a risk - and missed. So, with a heavy heart,
+I must announce a rollback and confirm that we have removed “labels” from most
+endpoints in the API.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Wed, 31 Aug 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/08/31/Taking-Risks.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/08/31/Taking-Risks.html</guid>
+			</item>
+		
+			<item>
+				<title>Connecting our API to Redux with higher-order functions</title>
+				        
+				
+					<description>&lt;p&gt;In our work on the
+&lt;a href=&quot;https://engineering.linode.com/2016/05/16/Announcing-the-new-open-source-manager.html&quot;&gt;new Linode Manager&lt;/a&gt;,
+we’ve put some effort into finding reusable ways to manage information from our
+API with the Manager’s Redux store. We ended up building a module that uses
+higher order functions to generate Redux reducers and action creators for this
+purpose.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Wed, 17 Aug 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/08/17/Using-metaprogramming-in-the-manager.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/08/17/Using-metaprogramming-in-the-manager.html</guid>
+			</item>
+		
+			<item>
+				<title>IP Addresses in the Alpha API</title>
+				        
+				
+					<description>&lt;p&gt;In our latest development rollout of the Alpha API, we’ve started adding
+networking capabilities, beginning with public and private IPs for your Linodes.
+This means both IP types will soon be available in the
+&lt;a href=&quot;https://github.com/Linode/manager&quot; title=&quot;new Linode
+Manager&quot;&gt;new Linode Manager&lt;/a&gt; sometime in the near future.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sun, 14 Aug 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/08/14/Managing-IP-Addresses.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/08/14/Managing-IP-Addresses.html</guid>
+			</item>
+		
+			<item>
+				<title>API Alpha Label Rollout</title>
+				        
+				
+					<description>&lt;p&gt;After two more weeks of brain power and coffee, we have another fresh batch of
+updates for the API V4 Alpha!  This time around we’ve put a lot of effort into
+rolling out labels for the majority of resources that didn’t use them, as well as
+some bug fixes and assorted improvements.  We’ve also laid the foundation for
+upcoming features.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Tue, 26 Jul 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/07/26/Labels-Rollout.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/07/26/Labels-Rollout.html</guid>
+			</item>
+		
+			<item>
+				<title>API Alpha upgrades Plan, adds Labels, improves Backups, UTC</title>
+				        
+				
+					<description>&lt;p&gt;We are proud to announce another round of features and improvements to the
+API Alpha. With this release, we’re upgrading the test Linode plan,
+doing even more cool things with Backups in our API Alpha environment,
+adding labels, and changing how time works. We’ve also added some
+capacity to our API Alpha environment, as it keeps growing in popularity!&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 07 Jul 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/07/07/Alpha-adds-labels-backups-utc.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/07/07/Alpha-adds-labels-backups-utc.html</guid>
+			</item>
+		
+			<item>
+				<title>Backups Added to API Alpha</title>
+				        
+				
+					<description>&lt;p&gt;As development of the new API progresses in tandem with our work on
+&lt;a href=&quot;https://engineering.linode.com/2016/05/26/Getting-started-with-the-new-manager.html&quot;&gt;the new
+manager&lt;/a&gt;,
+we wanted to introduce functionality that our Linode manager has but our current API does not.
+Backups seemed to be the logical choice, and we’re pleased to announce that its
+initial integration - enabling, restoring from backups, and snapshots - is now
+live and available for alpha consumption.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Wed, 22 Jun 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/06/22/Backups-Added-6-22-2016.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/06/22/Backups-Added-6-22-2016.html</guid>
+			</item>
+		
+			<item>
+				<title>How we picked a comfortable frontend stack and settled into its ecosystem</title>
+				        
+				
+					<description>&lt;p&gt;In the JavaScript world today there are tons of shiny new projects out there and
+it’s overwhelming to figure out how to build a large product from the ground up.
+Before starting on &lt;a href=&quot;https://github.com/Linode/manager&quot;&gt;the new Linode Manager&lt;/a&gt;,
+we had a long period of internal prototyping and developer discussions to find
+the ideal frontend stack for the project. Three main prototypes emerged, based
+on &lt;a href=&quot;http://facebook.github.io/react/&quot;&gt;React.js&lt;/a&gt;,
+&lt;a href=&quot;https://angularjs.org/&quot;&gt;Angular&lt;/a&gt;, and &lt;a href=&quot;http://mithril.js.org/&quot;&gt;Mithril&lt;/a&gt;. Each
+of these platforms ships a different broader design philosophy.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Fri, 03 Jun 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/06/03/Building-a-comfy-frontend-stack.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/06/03/Building-a-comfy-frontend-stack.html</guid>
+			</item>
+		
+			<item>
+				<title>Getting started with the new Manager</title>
+				        
+				
+					<description>&lt;p&gt;As you may have &lt;a href=&quot;https://engineering.linode.com/2016/05/16/Announcing-the-new-open-source-manager.html&quot;&gt;seen&lt;/a&gt;,
+the new Linode Manager is an entirely static app being developed in the
+&lt;a href=&quot;https://github.com/linode/manager&quot;&gt;open&lt;/a&gt; on Github. This post will walk you
+through the steps required to get the new Manager up and running on your local
+machine. This process can also be extended to building any application on the
+new API.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 26 May 2016 00:00:00 -0400</pubDate>
+				<link>https://engineering.linode.com/2016/05/26/Getting-started-with-the-new-manager.html</link>
+				<guid isPermaLink="true">https://engineering.linode.com/2016/05/26/Getting-started-with-the-new-manager.html</guid>
+			</item>
+		
+	</channel>
+</rss>

@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://www.linode.com/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" title="RSS" href="http://engineering.linode.com/feed.xml">
+    <title>
+      
+      
+      Alpha Updates 5/24/16 - Linode Engineering Blog
+      
+      
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M3XXZX"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M3XXZX');</script>
+    <!-- End Google Tag Manager -->
+    <header class="clearfix">
+  <nav id="main-nav" class="container" role="navigation">
+    <a class="navbar-brand" href="/">
+      <img id="navbar-logo" src="https://www.linode.com/media/images/header/linode-logo.svg"
+           width="115" height="45" />
+    </a>
+    <span class="nav-text nav-title">
+      Engineering
+    </span>
+    <span class="nav-text float-xs-right">
+      <a href="https://linode.com/careers">We're hiring!</a>
+    </span>
+  </nav>
+</header>
+
+    <div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <sidebar>
+  <section>
+    <h3>Popular posts</h3>
+    <div class="recommended"><a href="#">API Alpha Events Rollout</a></div>
+  </section>
+  <section>
+    <h3>Popular tags</h3>
+    <div class='tags'><a href='/tags/APIv4'>APIv4 (9)</a></div><div class='tags'><a href='/tags/Manager'>Manager (4)</a></div><div class='tags'><a href='/tags/Python-Flask'>Python/Flask (1)</a></div>
+  </section>
+</sidebar>
+
+    </div>
+    <div class="col-sm-7">
+      <article>
+        <div class="article-tags">APIv4</div>
+        <h1 class="article-title">Alpha Updates 5/24/16</h1>
+        <header class="article-header">
+          <span class="article-date">24 May 2016</span>, by
+          <span class="article-author">Will Smith</span>
+          <img class="article-avatar" src="https://www.linode.com/media/images/employees/wsmith.png" alt="Will Smith" width="25" />
+        </header>
+        <div class="article-content">
+          <p>Now that we’ve addressed the initial wave of feedback from the API alpha, we’re
+gearing up to add new features and bring it to parity with the existing system.
+We are planning bi-weekly updates to the alpha, so expect a steady stream of
+new features and tweaks.</p>
+
+<p>Here’s the first batch of changes, deployed today:</p>
+
+<p><strong>Standards Compliance</strong><br />
+Through our open source initiatives, we received feedback that people would 
+like a Standards compliant way to consume our API spec. We’ve decided to use
+Swagger for this purpose because it has been adopted by the OpenAPI Specification.
+Swagger has an excellent community around it with some
+solid tools. While incomplete, the groundwork for our swagger implementation 
+can be found <a href="http://api.alpha.linode.com/v4/swagger.json">here</a>.</p>
+
+<p><strong>Root SSH Keys</strong> <br />
+Now when deploying a new Linode or disk, you can
+include a <code class="highlighter-rouge">root_ssh_key</code> parameter that will be placed in your filesystem, making
+your first login painless.</p>
+
+<p><strong>Token Expiration</strong> <br />
+When does that token expire? <a href="https://login.alpha.linode.com">Login</a> now displays
+expiry information, making tokens easier to manage. Also, when a user logs out of
+your application, you may now take the extra step of expiring that user’s OAuth
+token immediately, making your application more secure.</p>
+
+<p><strong>Expanded Filtering Syntax</strong> <br />
+Now you can include <code class="highlighter-rouge">+order_by</code>, <code class="highlighter-rouge">+limit</code>, and
+<code class="highlighter-rouge">+order</code> operators in filters to write smarter queries.</p>
+
+<p><strong>Unified Response Format</strong> <br />
+We’ve removed the envelope from responses that return
+a single object, making all requests consistent.</p>
+
+<p><strong>Removed Partial Objects</strong> <br />
+Some requests, like GETting a Linode, returned lists
+of partial Distribution objects. We’ve done away with the concept of a partial
+object and are now returning the entire object as documented everywhere.</p>
+
+<p>In addition to these changes, v4.0.2a of the
+<a href="https://github.com/linode/python-linode-api">python client</a> has been released
+with compatibility for all of the above features.</p>
+
+<p>As always, we welcome any and all feedback on these features and others at our
+<a href="https://github.com/linode/developers">documentation github</a> or in the
+#linode-next channel of <a href="https://webchat.oftc.net/?channels=linode-next&amp;uio=d4">OFTC</a>.
+Stay tuned for more features - API support for backups is on the horizon.</p>
+
+        </div>
+      </acticle>
+    </div>
+  </div>
+</div>
+
+    <footer class="container">
+      <div class="row">
+        <div class="col-md-10 text-xs-right">
+          <span class="text-muted">
+            &copy; Linode 2016, CC-BY-SA 4.0<br />
+            <a href="https://github.com/Linode/blog">
+              Source available on GitHub
+              <i class="fa fa-github"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

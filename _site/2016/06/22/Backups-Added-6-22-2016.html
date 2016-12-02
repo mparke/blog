@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://www.linode.com/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" title="RSS" href="http://engineering.linode.com/feed.xml">
+    <title>
+      
+      
+      Backups Added to API Alpha - Linode Engineering Blog
+      
+      
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M3XXZX"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M3XXZX');</script>
+    <!-- End Google Tag Manager -->
+    <header class="clearfix">
+  <nav id="main-nav" class="container" role="navigation">
+    <a class="navbar-brand" href="/">
+      <img id="navbar-logo" src="https://www.linode.com/media/images/header/linode-logo.svg"
+           width="115" height="45" />
+    </a>
+    <span class="nav-text nav-title">
+      Engineering
+    </span>
+    <span class="nav-text float-xs-right">
+      <a href="https://linode.com/careers">We're hiring!</a>
+    </span>
+  </nav>
+</header>
+
+    <div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <sidebar>
+  <section>
+    <h3>Popular posts</h3>
+    <div class="recommended"><a href="#">API Alpha Events Rollout</a></div>
+  </section>
+  <section>
+    <h3>Popular tags</h3>
+    <div class='tags'><a href='/tags/APIv4'>APIv4 (9)</a></div><div class='tags'><a href='/tags/Manager'>Manager (4)</a></div><div class='tags'><a href='/tags/Python-Flask'>Python/Flask (1)</a></div>
+  </section>
+</sidebar>
+
+    </div>
+    <div class="col-sm-7">
+      <article>
+        <div class="article-tags">APIv4</div>
+        <h1 class="article-title">Backups Added to API Alpha</h1>
+        <header class="article-header">
+          <span class="article-date">22 Jun 2016</span>, by
+          <span class="article-author">Josh Sager</span>
+          <img class="article-avatar" src="https://www.linode.com/media/images/employees/jsager.png" alt="Josh Sager" width="25" />
+        </header>
+        <div class="article-content">
+          <p>As development of the new API progresses in tandem with our work on
+<a href="https://engineering.linode.com/2016/05/26/Getting-started-with-the-new-manager.html">the new
+manager</a>,
+we wanted to introduce functionality that our Linode manager has but our current API does not.
+Backups seemed to be the logical choice, and we’re pleased to announce that its
+initial integration - enabling, restoring from backups, and snapshots - is now
+live and available for alpha consumption.</p>
+
+<p>Adding backups in the current manager is as easy as clicking a button. While
+it seems simple on the surface, quite a few things happen behind the scenes to
+get it all to work. In this update, we worked closely with our Hardware and
+Backups teams to get the same functionality and hardware available in our Alpha
+environment. We’ll be enhancing backups even more, so stay tuned. Hitting the 
+endpoints for Backups is pretty self-explanatory, with one or two small twists and turns.
+Let’s talk about them now and, while we do, remember that our <a href="https://developers.linode.com/reference">documentation</a>
+provides greater detail on Backups and the rest of our burgeoning API.</p>
+
+<h2 id="enabling-backups">Enabling Backups</h2>
+
+<p>Enabling backups is as easy as a POST method to the specific Linode’s backups “enable” endpoint:</p>
+
+<div id="curl-example">
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nv">token</span><span class="o">=</span><span class="s2">"a valid oauth token"</span>
+<span class="nv">linode</span><span class="o">=</span><span class="k">$(</span>curl -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: token </span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    -X POST https://api.alpha.linode.com/v4/linodes/linode_123/backups/enable<span class="k">)</span></code></pre></figure>
+
+</div>
+
+<p>When you enable backups, a day and window will be chosen for you based on best availability. You can edit the day and window
+parameters to suit your needs if required, detailed below:</p>
+
+<h2 id="scheduling">Scheduling</h2>
+
+<p>One of the complexities we encountered in bringing Backups into the API was how
+to handle backup windows - the time slots in which your backups will occur. In our current Manager web interface, you choose a window
+from a collection of two-hour blocks using the 24-hour clock, from 0000-0200 (midnight to 2AM or, more specifically, 
+1:59AM) to 2200-2400 (10:00PM to 11:59PM). We admit this is rather 
+confusing, and especially so for us as developers when trying to figure out an easy way to 
+represent this in API calls. We also wanted to be consistent when coupled with 
+scheduling of the backup day. If you wanted to pass 
+“Tuesday” as your scheduled day, we didn’t want you to have to memorize an integer-based index or repeatedly reference our docs 
+because you keep forgetting all the time (though we worked really hard on the docs, so show us some love and <a href="https://developers.linode.com/reference">check ‘em out</a>).</p>
+
+<p>Our solution was to create an enumeration to simplify the representation of the 24-hour cycle. 
+Instead of trying to pass “0000-0200” in the API, Backup windows are prefixed with the letter “W” followed by an integer
+representing the start hour of the window you want. So, if you wanted your backups to fall within the 8-10PM EST window on Tuesdays, you would do
+something like the following:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nv">token</span><span class="o">=</span><span class="s2">"a valid oauth token"</span>
+<span class="nv">linode</span><span class="o">=</span><span class="k">$(</span>curl -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: token </span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    -X PUT -d <span class="s1">'{
+        "backups": {
+            "schedule": {
+                "day": "Tuesday",
+                "window": "W20"
+            }
+        }
+    }'</span> <span class="se">\</span>
+    https://api.alpha.linode.com/v4/linodes/linode_123<span class="k">)</span></code></pre></figure>
+
+<h2 id="restoring-from-backup">Restoring from Backup</h2>
+
+<p>You can also restore from a backup by passing the Linode’s ID to the restore endpoint:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nv">token</span><span class="o">=</span><span class="s2">"a valid oauth token"</span>
+<span class="nv">linode</span><span class="o">=</span><span class="k">$(</span>curl -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: token </span><span class="nv">$TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+    -X POST -d <span class="s1">'{
+        "linode": "linode_234"
+    }'</span> <span class="se">\</span>
+    https://api.alpha.linode.com/v4/linodes/<span class="nv">$linode_id</span>/backups/<span class="nv">$backup_id</span>/restore<span class="k">)</span></code></pre></figure>
+
+<p><strong>Spoiler Alert:</strong> In the very near future you will be able to use a backup to create a new Linode. Stay tuned for that implementation.</p>
+
+<h2 id="snapshots">Snapshots</h2>
+
+<p>In our first alpha development cycle for Backups, POSTing to a /backups/snapshot endpoint
+seemed to be the most appropriate place to start the manual backup process. But,
+we recognized an interesting line being drawn between being RESTful or being
+more user-friendly, and in this particular case we aired on the side of being more RESTful. 
+To that end, creating a snapshot is done by executing a POST to a specific Linode’s backup endpoint:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nv">token</span><span class="o">=</span><span class="s2">"a valid oauth token"</span>
+<span class="nv">linode</span><span class="o">=</span><span class="k">$(</span>curl -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: token </span><span class="nv">$token</span><span class="s2">"</span> <span class="se">\</span>
+    -X POST https://api.alpha.linode.com/v4/linodes/linode_123/backups<span class="k">)</span></code></pre></figure>
+
+<p>We still have more Backups-related work to do, but we are proud to see this work 
+bringing our API closer to a complete solution for managing your Linodes and other features 
+of our service.</p>
+
+<p>As always, we welcome feedback on these features and others at our
+<a href="https://developers.linode.com/">documentation github</a> or in the
+#linode-next channel of <a href="https://webchat.oftc.net/?channels=linode-next&amp;uio=d4">OFTC</a>.</p>
+
+        </div>
+      </acticle>
+    </div>
+  </div>
+</div>
+
+    <footer class="container">
+      <div class="row">
+        <div class="col-md-10 text-xs-right">
+          <span class="text-muted">
+            &copy; Linode 2016, CC-BY-SA 4.0<br />
+            <a href="https://github.com/Linode/blog">
+              Source available on GitHub
+              <i class="fa fa-github"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

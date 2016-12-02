@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://www.linode.com/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" title="RSS" href="http://engineering.linode.com/feed.xml">
+    <title>
+      
+      
+      API Alpha upgrades Plan, adds Labels, improves Backups, UTC - Linode Engineering Blog
+      
+      
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M3XXZX"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M3XXZX');</script>
+    <!-- End Google Tag Manager -->
+    <header class="clearfix">
+  <nav id="main-nav" class="container" role="navigation">
+    <a class="navbar-brand" href="/">
+      <img id="navbar-logo" src="https://www.linode.com/media/images/header/linode-logo.svg"
+           width="115" height="45" />
+    </a>
+    <span class="nav-text nav-title">
+      Engineering
+    </span>
+    <span class="nav-text float-xs-right">
+      <a href="https://linode.com/careers">We're hiring!</a>
+    </span>
+  </nav>
+</header>
+
+    <div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <sidebar>
+  <section>
+    <h3>Popular posts</h3>
+    <div class="recommended"><a href="#">API Alpha Events Rollout</a></div>
+  </section>
+  <section>
+    <h3>Popular tags</h3>
+    <div class='tags'><a href='/tags/APIv4'>APIv4 (9)</a></div><div class='tags'><a href='/tags/Manager'>Manager (4)</a></div><div class='tags'><a href='/tags/Python-Flask'>Python/Flask (1)</a></div>
+  </section>
+</sidebar>
+
+    </div>
+    <div class="col-sm-7">
+      <article>
+        <div class="article-tags">APIv4</div>
+        <h1 class="article-title">API Alpha upgrades Plan, adds Labels, improves Backups, UTC</h1>
+        <header class="article-header">
+          <span class="article-date">07 Jul 2016</span>, by
+          <span class="article-author">James Ottinger</span>
+          <img class="article-avatar" src="https://www.linode.com/media/images/employees/jottinger.png" alt="James Ottinger" width="25" />
+        </header>
+        <div class="article-content">
+          <p>We are proud to announce another round of features and improvements to the
+API Alpha. With this release, we’re upgrading the test Linode plan,
+doing even more cool things with Backups in our API Alpha environment,
+adding labels, and changing how time works. We’ve also added some
+capacity to our API Alpha environment, as it keeps growing in popularity!</p>
+
+<p>Let’s explore the new changes in more detail:</p>
+
+<h2 id="new-plan-more-capacity">New Plan, More Capacity</h2>
+
+<p>The API Alpha environment has been upgraded with the latest Linode plan.
+We are sporting a plan from <a href="https://blog.linode.com/2016/06/16/linodes-13th-birthday-gifts-for-all/">our recent Linode 13th Birthday upgrade</a>
+in our testing environment.  Also, we have added more capacity to support
+more testers. If you haven’t signed up already, we welcome you to
+<a href="https://alpha.linode.com">Join the Linode API Alpha</a>.</p>
+
+<h2 id="labels">Labels</h2>
+
+<p>One of the most common discussions among the API Team involves ways of
+making the API easier to use. The newest addition in that pursuit is
+what we’re calling “slugs”, or “labels”. Instead of looking up an
+ID, you can use an easy-to-remember label.</p>
+
+<p>In this update, we’ve added labels for data centers, services,
+distributions, and kernels.  For example, instead of the datacenter
+parameter being “datacenter_6”, it can now be “newark”. Likewise, a Linode
+service plan is “linode2048.5”. Cool, huh?</p>
+
+<h2 id="creating-a-linode-from-a-backup">Creating a Linode from a Backup</h2>
+
+<p>Today’s update also adds the ability to easily create a new Linode from a Backup.
+The existing <a href="https://developers.linode.com/reference/#ep-linodes-methods">/linodes endpoint</a>
+has been enhanced to allow the “source”  parameter to accept a Backup ID.
+Let’s take a look at an example, and use some of the new labels in the process:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="nv">token</span><span class="o">=</span><span class="s2">"a valid oauth token"</span>
+<span class="nv">linode</span><span class="o">=</span><span class="k">$(</span>curl -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: token </span><span class="nv">$TOKEN</span><span class="s2">"</span> <span class="se">\</span>
+    -X POST -d <span class="s1">'{
+        "source": "backup_123",
+        "datacenter": "newark",
+        "service": "linode2048.5"
+    }'</span> <span class="se">\</span>
+    https://api.alpha.linode.com/v4/linodes<span class="k">)</span></code></pre></figure>
+
+<p>If you are just getting started with Backups in our Alpha API environment, the full
+<a href="https://developers.linode.com/reference">documentation</a> includes detailed
+instructions and more examples to get you going quickly.</p>
+
+<h2 id="coordinated-universal-time-utc">Coordinated Universal Time, UTC</h2>
+
+<p>What time is it? It is UTC Time. How about now? It’s still UTC Time. <em>(drops microphone)</em></p>
+
+<p>All API responses that include a datetime property now return that same property
+in Coordinated Universal Time format. Moving to UTC removes any confusion with
+dates and times.</p>
+
+<h2 id="feedback">Feedback</h2>
+
+<p>If you haven’t had the opportunity to leave us feedback, we invite you to
+do so. If you have, we thank you for your continued support. The entire API
+Alpha Team reviews all input and we love hearing from you. Head on over
+to <a href="https://developers.linode.com/">github</a> or talk to us in the
+<a href="https://webchat.oftc.net/?channels=linode-next&amp;uio=d4">#linode-next channel of OFTC</a>.</p>
+
+<p>Stay tuned for more updates!</p>
+
+        </div>
+      </acticle>
+    </div>
+  </div>
+</div>
+
+    <footer class="container">
+      <div class="row">
+        <div class="col-md-10 text-xs-right">
+          <span class="text-muted">
+            &copy; Linode 2016, CC-BY-SA 4.0<br />
+            <a href="https://github.com/Linode/blog">
+              Source available on GitHub
+              <i class="fa fa-github"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

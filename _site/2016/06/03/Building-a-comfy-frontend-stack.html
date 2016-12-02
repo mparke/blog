@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://www.linode.com/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" title="RSS" href="http://engineering.linode.com/feed.xml">
+    <title>
+      
+      
+      How we picked a comfortable frontend stack and settled into its ecosystem - Linode Engineering Blog
+      
+      
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M3XXZX"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M3XXZX');</script>
+    <!-- End Google Tag Manager -->
+    <header class="clearfix">
+  <nav id="main-nav" class="container" role="navigation">
+    <a class="navbar-brand" href="/">
+      <img id="navbar-logo" src="https://www.linode.com/media/images/header/linode-logo.svg"
+           width="115" height="45" />
+    </a>
+    <span class="nav-text nav-title">
+      Engineering
+    </span>
+    <span class="nav-text float-xs-right">
+      <a href="https://linode.com/careers">We're hiring!</a>
+    </span>
+  </nav>
+</header>
+
+    <div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <sidebar>
+  <section>
+    <h3>Popular posts</h3>
+    <div class="recommended"><a href="#">API Alpha Events Rollout</a></div>
+  </section>
+  <section>
+    <h3>Popular tags</h3>
+    <div class='tags'><a href='/tags/APIv4'>APIv4 (9)</a></div><div class='tags'><a href='/tags/Manager'>Manager (4)</a></div><div class='tags'><a href='/tags/Python-Flask'>Python/Flask (1)</a></div>
+  </section>
+</sidebar>
+
+    </div>
+    <div class="col-sm-7">
+      <article>
+        <div class="article-tags">Manager</div>
+        <h1 class="article-title">How we picked a comfortable frontend stack and settled into its ecosystem</h1>
+        <header class="article-header">
+          <span class="article-date">03 Jun 2016</span>, by
+          <span class="article-author">Drew DeVault</span>
+          <img class="article-avatar" src="https://www.linode.com/media/images/employees/ddevault.png" alt="Drew DeVault" width="25" />
+        </header>
+        <div class="article-content">
+          <p>In the JavaScript world today there are tons of shiny new projects out there and
+it’s overwhelming to figure out how to build a large product from the ground up.
+Before starting on <a href="https://github.com/Linode/manager">the new Linode Manager</a>,
+we had a long period of internal prototyping and developer discussions to find
+the ideal frontend stack for the project. Three main prototypes emerged, based
+on <a href="http://facebook.github.io/react/">React.js</a>,
+<a href="https://angularjs.org/">Angular</a>, and <a href="http://mithril.js.org/">Mithril</a>. Each
+of these platforms ships a different broader design philosophy.</p>
+
+<p>React.js (note: when I talk about React.js, I’m referring to
+React+<a href="https://github.com/reactjs/redux">Redux</a>) brings a lot of functional
+programming concepts to the table. Angular is a declarative MVC framework and
+lives alongside things like <a href="http://knockoutjs.com/">Knockout.js</a> and
+Microsoft’s
+<a href="https://msdn.microsoft.com/en-us/library/ms754130(v=vs.110).aspx">WPF</a>
+platform. Mithril is a sort of balance between both, with an MVC-driven design
+with some similarities to React. We also tried several different variations on
+JavaScript with each of these prototypes. The Mithril prototype used ES5, the
+Angular prototype used <a href="http://www.typescriptlang.org/">TypeScript</a>, and the
+React.js prototype used <a href="https://hacks.mozilla.org/2015/04/es6-in-depth-an-introduction/">ES6 and
+ES7</a>.</p>
+
+<p>We set a goal for ourselves: build a prototype that can log into your Linode
+account via OAuth and list your Linodes, as well as a detail page. The idea is
+that we’d demonstrate several important things in the context of each framework:</p>
+
+<ol>
+  <li>The OAuth flow</li>
+  <li>Talking to the API</li>
+  <li>Routing</li>
+  <li>Rendering to the DOM</li>
+</ol>
+
+<p>For bonus points we could show off anything your framework did that was
+particularly cool, like hot module reloading. I made a React prototype, my
+colleagues Marques and Abe helped - Marques did the Angular 2 prototype, and Abe
+did the Mithril prototype. Eventually we presented our prototypes and
+recommendations to the rest of the development team.</p>
+
+<h2 id="angular-2--typescript">Angular 2 &amp; TypeScript</h2>
+
+<p>Marques started the Angular prototype with the official <a href="https://github.com/angular/angular2-seed">Angular 2
+seed</a>. Angular presents a significant
+evolution on the concepts the web has been developing over the past several
+years with tools like Knockout, Backbone, Require.js, and so on. It takes the
+best tools of the past 4 years or so of JavaScript and makes them into a modern,
+cohesive package. The use of TypeScript here also brings along some of the nice
+features of ES6 plus a strong type system for object oriented programming. It’s
+no surprise TypeScript came out of Microsoft - it’s pretty similar to C#. The
+Angular + TypeScript stack should feel very comfortable for .NET programmers who
+want to easily transition into the web.</p>
+
+<p>For those who want this more traditional object oriented model, Angular seems to
+be excellent. It has support for <a href="https://docs.angularjs.org/guide/di">dependency
+injection</a> and adding TypeScript brings a
+lot of value. It also provides a comprehensive framework that handles everything
+from routing to HTTP requests for you, with detailed documentation. However,
+for some of the more volatile features, Marques found the documentation
+confusing, incomplete, and inconsistent. This’ll probably cease to be an issue
+once Angular 2 is released properly.</p>
+
+<p>Angular also offers some innovative ways of managing your data with the
+observables mechanic. They basically work like Unix pipes and let you chain
+operations together and subscribe to changes anywhere in the pipeline, then
+respond to those changes in your application. Angular is also well tested and
+the community has many examples, though some may be outdated (which is a problem
+for all three of the options we’re looking at today).</p>
+
+<p>There are some disadvantages to Angular. Though Google has promised improvements
+to this, Angular 2 is pretty slow. There are lots of debugging things going on
+and the startup times are rough. The transition from Angular 1 to Angular 2 is
+also very jarring and those with preconceptions about how Angular works are
+going to have a hard time. Some people also criticize the “do everything”
+approach that Angular takes, preferring the Unix philosophy where tools and
+libraries with a smaller scope are composed to fill the full picture.</p>
+
+<h2 id="mithril--es5">Mithril &amp; ES5</h2>
+
+<p>Mithril is for those who took the lessons of the past few years of JavaScript
+and concluded that not much needed to change. Abe quickly realized that Mithril
+was not the right call, but he soldiered on to be absolutely sure and see if
+there were any lessons to be learned that could be applied to our eventual
+choice. Abe had some praise for it, though. One of the big positives to Mithril
+is that it’s very quick to get up and running. There’s no transpiling or
+boilerplate to set up, no webpack or gulp, no package.json, or anything like
+that. You can just drop it into your page and get started like any old school
+JavaScript library. It’s also pretty simple for developers who are comfortable
+with ES5 libraries and patterns to understand and use.</p>
+
+<p>Abe found that the deeper he got into it, though, the less effective it was. The
+documentation is lacking and it handles more complex situations poorly. He also
+called some criticism on its separation of concerns, noting that idiomatic
+Mithril models are aware of the DOM. ES5 is also a pretty bad language, which
+we’ve all known for a long time. Transpiling is the right call for your sanity.</p>
+
+<p>I also asked Abe about the MVC pattern in general, and he still feels like it’s
+the right call in some situations. Abe worries that once your application gets
+big enough and cross dependencies start to pile up, MVC falls apart. <a href="http://facebook.github.io/flux/">Facebook
+feels the same way</a> (though I think the
+prevailing thought is that Flux isn’t quite right, either).</p>
+
+<h2 id="reactjs--es6">React.js &amp; ES6</h2>
+
+<p>React.js is Facebook’s offering for the new age of JavaScript, and Redux is a
+design philosophy that most people are using with React these days. It takes
+functional programming paradigms and introduces them to the web. The idea is
+this: you describe the state of your application in a single JavaScript object.
+If you have a checkbox that toggles the visibility of foobar, it’s in your state
+as <code class="highlighter-rouge">foobar: true</code>.  You then write your UI as a <a href="https://en.wikipedia.org/wiki/Pure_function">pure
+function</a> of your state. Given this
+state, you return either <code class="highlighter-rouge">&lt;input type="checkbox" /&gt;</code> or <code class="highlighter-rouge">&lt;input type="checkbox"
+checked="checked" /&gt;</code>. When the checkbox is ticked, you create a new state that
+has that boolean flipped and rerender your UI. Your entire application is
+described in this way, and it ends up being a single JavaScript function that
+you can pass a state object into it and it returns what the DOM should be when
+the application is in that state.</p>
+
+<p>This sounds pretty radical to someone who is used to imperative programming
+instead of functional programming, like I was pre-React. An idiomatic
+React+Redux code base is <em>not</em> object oriented. Your code and your data are kept
+separate and <a href="https://en.wikipedia.org/wiki/Immutability">you never mutate
+anything</a>. This is one of the big
+drawbacks to React: it was much harder for me and my coworkers to grok it. By
+accepting this radical change to your development philosophy, you get some
+seriously awesome advantages. Your code is easier to reason about, more
+testable, and more consistent. It also enables some really cool things like
+<a href="https://www.youtube.com/watch?v=xsSnOQynTHs">time travel</a> and hot reloading
+<em>all</em> of your code on the fly!</p>
+
+<p>ES6 is also great. It fixes almost every complaint I have about JavaScript.
+Writing ES6 code is much easier and more fun than writing ES5 code. The same
+goes for TypeScript, but since we aren’t object oriented in the React world we
+don’t stand to gain much from TS. Some things from the future (ES7) are also
+pretty great - in particular
+<a href="https://jakearchibald.com/2014/es7-async-functions/">async/await</a> are fantastic
+and our codebase has got a lot of mileage out of <a href="https://github.com/sebmarkbage/ecmascript-rest-spread">object
+spreading</a>.</p>
+
+<p>The downsides to React do exist, though. One of them is the documentation - it
+can be difficult to find the answers you’re looking for. React also showed up
+during the ES5 era and has struggled to move smoothly into the ES6 era. I get
+frustrated when I have to bind all of my functions in the constructor of my ES6
+classes. Above all, though, the biggest pain point with React is setting up the
+damn codebase. Getting all of the pieces together and working the right way took
+me ages and was extremely painful. I’m also <a href="https://medium.com/@azerbike/i-ve-just-liberated-my-modules-9045c06be67c">not a big
+fan</a>
+of how big our dependency tree is.</p>
+
+<h2 id="react-wins">React wins!</h2>
+
+<p>We picked React.js and later started implementing our new manager on top of it.
+The new manager is open source, you can check out our progress <a href="https://github.com/Linode/manager">on
+GitHub</a>. I also personally suggest that if
+you choose to make a React app, you fork it and gut it and base yours on ours to
+avoid the <em>massive</em> headache it’ll be putting all of the pieces together.
+Development on the new manager is going very well. We just finished adding test
+coverage for all of the things we intend to test right now, and we’re diving
+into fleshing out our application. React is a radical change for the JS
+community, but thanks to it I finally feel good about writing JavaScript. On the
+shoulders of React we are finally able to build a maintainable, scalable, and
+elegant large-scale codebase in JavaScript. It feels good, doesn’t it?</p>
+
+<h2 id="problems-we-ran-into">Problems we ran into</h2>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Clarification on my praise of React/Redux/etc - it&#39;s great once you can get it set up and only if you never have to touch your build again</p>&mdash; Drew DeVault (@SirCmpwn) <a href="https://twitter.com/SirCmpwn/status/732598136431087617">May 17, 2016</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>I almost wrote the prototype from scratch. I originally used gearon’s <a href="https://github.com/gaearon/react-hot-boilerplate">Redux hot
+loader starter kit</a>, which
+gives you the bare minimum necessary to get React and Redux hot loading in an
+application. We added the rest over time, and it has been a massive pain in the
+ass. We started with this:</p>
+
+<ul>
+  <li>React.js</li>
+  <li>Redux reducers and actions</li>
+  <li>Hot reloading</li>
+</ul>
+
+<p>And we had to deal with all of this:</p>
+
+<ul>
+  <li>Routing</li>
+  <li>Setting up and maintaining <a href="http://mochajs.org/">Webpack</a></li>
+  <li><a href="http://babeljs.io/">Babel</a> 5-&gt;6 transition</li>
+  <li>SCSS loading (and hot reloading)</li>
+  <li>Linting</li>
+  <li>Getting tests to work
+    <ul>
+      <li>Setting up <a href="http://mochajs.org/">Mocha</a></li>
+      <li>Getting <a href="https://karma-runner.github.io/0.13/index.html">Karma</a> working</li>
+      <li>Getting Webpack and Karma and Mocha to cooperate</li>
+      <li>Getting <a href="https://github.com/airbnb/enzyme">enzyme</a> working</li>
+      <li>Getting <a href="https://webpack.github.io/">Sinon</a> working</li>
+      <li>Code coverage reporting</li>
+    </ul>
+  </li>
+</ul>
+
+<p>All of these things do not always play nice together. There are many versions of
+each of them and they’re all subtly broken and incompatible with each other. It
+literally took me 2 full days of work to switch from running tests on Mocha to
+running tests with Karma. If you value your sanity I highly suggest you just
+take our open source repository and repurpose it for your needs.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Was React.js worth it? Well, I think so. I’ve never seen such a strong
+JavaScript codebase as the one we’re working on now. Once all the meta BS is out
+of the way, you can develop very quickly and with high confidence in the
+reliability and maintainability of your code. I’m glad we explored the other
+options as well - I imagine that a tool like Angular may very well be useful to
+us in the future for more projects, and it was great to find and understand the
+sore points of each framework by building a non-trivial prototype with them.</p>
+
+        </div>
+      </acticle>
+    </div>
+  </div>
+</div>
+
+    <footer class="container">
+      <div class="row">
+        <div class="col-md-10 text-xs-right">
+          <span class="text-muted">
+            &copy; Linode 2016, CC-BY-SA 4.0<br />
+            <a href="https://github.com/Linode/blog">
+              Source available on GitHub
+              <i class="fa fa-github"></i>
+            </a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

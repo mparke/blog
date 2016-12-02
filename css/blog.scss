@@ -2,6 +2,8 @@
 # Compiled by Jekyll
 ---
 
+$blue: #4A90E2;
+
 body {
     font-size: .9rem;
 }
@@ -16,6 +18,27 @@ h2 {
 
 h3 {
     font-size: 1.2rem;
+}
+
+.btn {
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    border-radius: 2px;
+    padding: 0 15px;
+
+    &.btn-primary {
+        background: $blue;
+
+        &:hover,
+        &:active,
+        &:focus,
+        &:active:focus {
+            background: transparent;
+            color: $blue;
+            border-color: $blue;
+        }
+    }
 }
 
 body > header {
@@ -87,7 +110,7 @@ sidebar {
 }
 
 footer {
-    padding-top: 14px;
+    padding: 14px 0;
 }
 
 @import "./syntax.scss";

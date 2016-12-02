@@ -11,7 +11,7 @@ module Jekyll
 
       html = ""
       sorted[0..2].each do |t, posts|
-        html << "<div class='topics'><a href='/topics/#{t.gsub('/', '-')}'>#{t} (#{posts.count})</a></div>"
+        html << "<div class='tags'><a href='/tags/#{t.gsub('/', '-')}'>#{t} (#{posts.count})</a></div>"
       end
 
       html
