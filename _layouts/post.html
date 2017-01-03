@@ -4,22 +4,22 @@ layout: base
 
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      {% include sidebar.html %}
-    </div>
     <div class="col-sm-7">
       <article>
-        <div class="article-tags">{{ page.tags | join: ", " }}</div>
-        <h1 class="article-title">{{ page.title }}</h1>
-        <header class="article-header">
-          <span class="article-date">{{ page.date | date_to_string }}</span>, by
-          <span class="article-author">{{ page.author }}</span>
+        <h2 class="article-title">{{ page.title }}</h2>
+        <div class="article-subtitle text-muted">
           <img class="article-avatar" src="{{ page.avatar }}" alt="{{ page.author }}" width="25" />
-        </header>
+          <span class="article-author">By {{ page.author }}</span>
+          <span class="article-date">on {{ page.date | date: "%b %-d, %Y" }}</span>
+        </div>
         <div class="article-content">
           {{ content }}
         </div>
+        <div class="article-tags">{{ page.tags | join: ", " }}</div>
       </acticle>
+    </div>
+    <div class="col-md-3">
+      {% include sidebar.html %}
     </div>
   </div>
 </div>

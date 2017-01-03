@@ -3,8 +3,8 @@
 	<channel>
 		<title>Linode Engineering</title>
 		<description>Blog posts from Linode engineerings about engineering at Linode</description>		
-		<link>https://engineering.linode.com</link>
-		<atom:link href="https://engineering.linode.com/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://localhost:4000</link>
+		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>API Alpha Events Rollout</title>
@@ -17,8 +17,8 @@ but has been designed from 13 years of practical experience.&lt;/p&gt;
 </description>
 				
 				<pubDate>Thu, 10 Nov 2016 00:00:00 -0500</pubDate>
-				<link>https://engineering.linode.com/2016/11/10/Events.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/11/10/Events.html</guid>
+				<link>http://localhost:4000/2016/11/10/Events.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/11/10/Events.html</guid>
 			</item>
 		
 			<item>
@@ -35,8 +35,8 @@ at the same time?&lt;/p&gt;
 </description>
 				
 				<pubDate>Mon, 19 Sep 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/09/19/Redesigning-Endpoints-Backups-Rebuilding.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/09/19/Redesigning-Endpoints-Backups-Rebuilding.html</guid>
+				<link>http://localhost:4000/2016/09/19/Redesigning-Endpoints-Backups-Rebuilding.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/09/19/Redesigning-Endpoints-Backups-Rebuilding.html</guid>
 			</item>
 		
 			<item>
@@ -57,8 +57,8 @@ endpoints in the API.&lt;/p&gt;
 </description>
 				
 				<pubDate>Wed, 31 Aug 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/08/31/Taking-Risks.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/08/31/Taking-Risks.html</guid>
+				<link>http://localhost:4000/2016/08/31/Taking-Risks.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/08/31/Taking-Risks.html</guid>
 			</item>
 		
 			<item>
@@ -75,8 +75,8 @@ purpose.&lt;/p&gt;
 </description>
 				
 				<pubDate>Wed, 17 Aug 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/08/17/Using-metaprogramming-in-the-manager.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/08/17/Using-metaprogramming-in-the-manager.html</guid>
+				<link>http://localhost:4000/2016/08/17/Using-metaprogramming-in-the-manager.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/08/17/Using-metaprogramming-in-the-manager.html</guid>
 			</item>
 		
 			<item>
@@ -92,8 +92,8 @@ Manager&quot;&gt;new Linode Manager&lt;/a&gt; sometime in the near future.&lt;/p
 </description>
 				
 				<pubDate>Sun, 14 Aug 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/08/14/Managing-IP-Addresses.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/08/14/Managing-IP-Addresses.html</guid>
+				<link>http://localhost:4000/2016/08/14/Managing-IP-Addresses.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/08/14/Managing-IP-Addresses.html</guid>
 			</item>
 		
 			<item>
@@ -109,8 +109,8 @@ upcoming features.&lt;/p&gt;
 </description>
 				
 				<pubDate>Tue, 26 Jul 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/07/26/Labels-Rollout.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/07/26/Labels-Rollout.html</guid>
+				<link>http://localhost:4000/2016/07/26/Labels-Rollout.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/07/26/Labels-Rollout.html</guid>
 			</item>
 		
 			<item>
@@ -126,8 +126,8 @@ capacity to our API Alpha environment, as it keeps growing in popularity!&lt;/p&
 </description>
 				
 				<pubDate>Thu, 07 Jul 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/07/07/Alpha-adds-labels-backups-utc.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/07/07/Alpha-adds-labels-backups-utc.html</guid>
+				<link>http://localhost:4000/2016/07/07/Alpha-adds-labels-backups-utc.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/07/07/Alpha-adds-labels-backups-utc.html</guid>
 			</item>
 		
 			<item>
@@ -145,8 +145,8 @@ live and available for alpha consumption.&lt;/p&gt;
 </description>
 				
 				<pubDate>Wed, 22 Jun 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/06/22/Backups-Added-6-22-2016.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/06/22/Backups-Added-6-22-2016.html</guid>
+				<link>http://localhost:4000/2016/06/22/Backups-Added-6-22-2016.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/06/22/Backups-Added-6-22-2016.html</guid>
 			</item>
 		
 			<item>
@@ -165,8 +165,8 @@ of these platforms ships a different broader design philosophy.&lt;/p&gt;
 </description>
 				
 				<pubDate>Fri, 03 Jun 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/06/03/Building-a-comfy-frontend-stack.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/06/03/Building-a-comfy-frontend-stack.html</guid>
+				<link>http://localhost:4000/2016/06/03/Building-a-comfy-frontend-stack.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/06/03/Building-a-comfy-frontend-stack.html</guid>
 			</item>
 		
 			<item>
@@ -183,8 +183,8 @@ new API.&lt;/p&gt;
 </description>
 				
 				<pubDate>Thu, 26 May 2016 00:00:00 -0400</pubDate>
-				<link>https://engineering.linode.com/2016/05/26/Getting-started-with-the-new-manager.html</link>
-				<guid isPermaLink="true">https://engineering.linode.com/2016/05/26/Getting-started-with-the-new-manager.html</guid>
+				<link>http://localhost:4000/2016/05/26/Getting-started-with-the-new-manager.html</link>
+				<guid isPermaLink="true">http://localhost:4000/2016/05/26/Getting-started-with-the-new-manager.html</guid>
 			</item>
 		
 	</channel>

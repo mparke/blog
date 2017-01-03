@@ -2,7 +2,7 @@
 # Compiled by Jekyll
 ---
 
-$blue: #4A90E2;
+$blue: #0089bc;
 
 body {
     font-size: .9rem;
@@ -13,19 +13,22 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+}
+
+a {
+    color: $blue;
 }
 
 .btn {
     height: 30px;
-    line-height: 30px;
     font-size: 15px;
     border-radius: 2px;
-    padding: 0 15px;
+    padding: 4px 15px;
 
     &.btn-primary {
         background: $blue;
@@ -42,32 +45,28 @@ h3 {
 }
 
 body > header {
-    background: #333;
+    background: #323232;
     height: 59px;
     line-height: 59px;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 
     .navbar-brand {
         float: none;
+        margin-left: -6px;
         padding: 0;
-        line-height: 59px;
 
-        img {
+        .navbar-brand-text {
+            color: #fff;
+
+            // Temporary until we can get a combined logo or font family to match
+            //font-family: ;
             position: relative;
-            top: -2px;
+            top: 3px;
         }
     }
 
     .nav-title {
         font-size: 20px;
-    }
-
-    .nav-text {
-        color: white;
-
-        & a {
-            color: white;
-        }
     }
 }
 
@@ -81,7 +80,7 @@ sidebar {
     }
 
     a {
-        color: #999;
+        color: $blue;
     }
 
     .topic:not(:last-of-type), .recommendation:not(:last-of-type) {
@@ -91,18 +90,24 @@ sidebar {
 
 .article {
     &.excerpt {
-        padding-bottom: 14px;
+        margin-bottom: 36px;
+    }
+
+    p {
+        margin-bottom: 5px;
     }
 
     &-tags {
         color: #666;
+        font-size: 0.8rem;
     }
 
     &-title {
-        padding: 7px 0;
+        margin-bottom: 0;
+        padding: 10px 0;
     }
 
-    &-header {
+    &-subtitle {
         border-bottom: 1px solid #ddd;
         padding-bottom: 14px;
         margin-bottom: 14px;

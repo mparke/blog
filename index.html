@@ -4,9 +4,6 @@ layout: base
 
 <div class="container posts">
   <div class="row">
-    <div class="col-md-3">
-      {% include sidebar.html %}
-    </div>
     <div class="col-md-7">
       {% for post in site.posts limit:5 %}
       {% include post-stub.html post=post %}
@@ -19,5 +16,8 @@ layout: base
       {% if site.posts.size == 0 %}
       <p class="text-centered"><em>There are no posts to show here.</em></p>
       {% endif %}
+    </div>
+    <div class="col-md-3">
+      {% include sidebar.html %}
     </div>
 </div>
